@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WaterWorldSalon
+namespace Client
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
