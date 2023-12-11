@@ -13,13 +13,17 @@
             <ImageBrush ImageSource="/Resources/background.jpg"/>
         </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="3*"/>
+            <RowDefinition Height="4*"/>
             <RowDefinition Height="20*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Background="#FF040211">
             <TextBlock/>
         </StackPanel>
-        <Rectangle Grid.Row="1" Fill="#FF040211" Opacity="0.4"/>
-        <Frame Grid.Row="1" x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+
+        <Frame Grid.Row="1" x:Name="MainFrame" NavigationUIVisibility="Hidden">
+            <Frame.Background>
+                <SolidColorBrush Color="#FF040211" Opacity="0.4"/>
+            </Frame.Background>
+        </Frame>
     </Grid>
 </Page>

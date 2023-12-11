@@ -9,6 +9,17 @@
       Title="AuthPage">
 
     <Grid>
-        
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">
+            <TextBlock Text="АВТОРИЗАЦИЯ" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
+            <TextBlock Text="Логин" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
+            <TextBox x:Name="LoginTb" Width="100" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
+            <TextBlock Text="Пароль" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
+            <PasswordBox x:Name="PasswordPb" Width="100" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="AuthBtn" Width="100" Content="Войти" Click="CElAuthBtn" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
+                <Button x:Name="RegBtn" Width="100" Content="Регистрация" Click="CElRegBtn" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
+            </StackPanel>
+            
+        </StackPanel>
     </Grid>
 </Page>
