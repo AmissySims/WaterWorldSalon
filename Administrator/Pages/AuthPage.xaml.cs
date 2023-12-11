@@ -24,5 +24,10 @@ namespace Administrator.Pages
         {
             InitializeComponent();
         }
+
+        private void CElAuthBtn(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
