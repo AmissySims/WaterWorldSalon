@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Administrator.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace Administrator
         public MainWindow()
         {
             InitializeComponent();
+            FirstFrame.NavigationService.Navigate(new AuthPage());
         }
     }
 }

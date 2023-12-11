@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3EB95B04-8169-4FFF-A3B4-8351618E625E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WaterWorldLibrary</RootNamespace>
+    <AssemblyName>WaterWorldLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Aquarium.cs">
+      <DependentUpon>WaterWorldModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Busket.cs">
+      <DependentUpon>WaterWorldModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DeliveryPoint.cs">
+      <DependentUpon>WaterWorldModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DeliveryType.cs">
+      <DependentUpon>WaterWorldModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Fish.cs">
+      <DependentUpon>WaterWorldModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Inventory.cs">
+      <DependentUpon>WaterWorldModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>WaterWorldModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderFish.cs">
+      <DependentUpon>WaterWorldModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderInventory.cs">
+      <DependentUpon>WaterWorldModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>WaterWorldModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StatusOrder.cs">
+      <DependentUpon>WaterWorldModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>WaterWorldModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TypeFish.cs">
+      <DependentUpon>WaterWorldModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TypeInventory.cs">
+      <DependentUpon>WaterWorldModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>WaterWorldModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WaterWorldModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WaterWorldModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WaterWorldModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WaterWorldModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WaterWorldModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WaterWorldModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Models\WaterWorldModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WaterWorldModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="Models\WaterWorldModel.edmx.diagram">
+      <DependentUpon>WaterWorldModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\WaterWorldModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>WaterWorldModel.Context.cs</LastGenOutput>
+      <DependentUpon>WaterWorldModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\WaterWorldModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WaterWorldModel.edmx</DependentUpon>
+      <LastGenOutput>WaterWorldModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

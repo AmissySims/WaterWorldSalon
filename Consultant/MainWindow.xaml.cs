@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Consultant.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace Consultant
         public MainWindow()
         {
             InitializeComponent();
+            FirstFrame.NavigationService.Navigate(new AuthPage());
         }
     }
 }
