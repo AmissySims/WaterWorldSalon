@@ -1,0 +1,27 @@
+﻿<Page x:Class="Client.Pages.MainMainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Client.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainMainPage">
+
+    <Grid>
+        <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Margin="15" HorizontalAlignment="Center">
+                <Button x:Name="FishBtn" Style="{StaticResource ImportantBtn}"  Content="Рыбки"/>
+
+                <Button x:Name="InventoryBtn" Style="{StaticResource ImportantBtn}" Content="Инвентарь"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="15" HorizontalAlignment="Center">
+                <Button x:Name="OrdersBtn" Style="{StaticResource ImportantBtn}" Content="Мои заказы"/>
+                <Button x:Name="BucketBtn" Style="{StaticResource ImportantBtn}" Content="Корзина"/>
+                <Button x:Name="AccountBtn" Style="{StaticResource ImportantBtn}" Content="Аккаунт"/>
+            </StackPanel>
+
+
+        </StackPanel>
+    </Grid>
+</Page>

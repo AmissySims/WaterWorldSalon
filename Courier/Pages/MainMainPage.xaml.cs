@@ -13,27 +13,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Consultant.Pages
+namespace Courier.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainPage.xaml
+    /// Логика взаимодействия для MainMainPage.xaml
     /// </summary>
-    public partial class MainPage : Page
+    public partial class MainMainPage : Page
     {
-        public MainPage()
+        public MainMainPage()
         {
             InitializeComponent();
-            MainFrame.NavigationService.Navigate(new MainMainPage());
         }
 
-        private void MainBtn_Click(object sender, RoutedEventArgs e)
+        private void OrderdBtn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new MainPage());
+            NavigationService.Navigate(new OrdersPage());
         }
 
-        private void ExitBtn_Click(object sender, RoutedEventArgs e)
+        private void AccountBtn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AuthPage());
+            NavigationService.Navigate(new AccountPage());
         }
     }
 }

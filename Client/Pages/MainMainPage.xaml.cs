@@ -16,24 +16,13 @@ using System.Windows.Shapes;
 namespace Client.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainPage.xaml
+    /// Логика взаимодействия для MainMainPage.xaml
     /// </summary>
-    public partial class MainPage : Page
+    public partial class MainMainPage : Page
     {
-        public MainPage()
+        public MainMainPage()
         {
             InitializeComponent();
-            MainFrame.NavigationService.Navigate(new MainMainPage());
-        }
-
-        private void MainBtn_Click(object sender, RoutedEventArgs e)
-        {
-           NavigationService.Navigate(new MainPage());
-        }
-
-        private void ExitBtn_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new AuthPage());
         }
     }
 }

@@ -18,9 +18,9 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Background="#FF040211" >
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-                <Button Style="{StaticResource MainsButttons}" x:Name="MainBtn" Content="Главная" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Button Style="{StaticResource MainsButttons}" x:Name="MainBtn" Content="Главная" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Center" Click="MainBtn_Click"/>
                 <Image Source="\Resources\text.jpg" Width="400" Margin="135 0 135 0" HorizontalAlignment="Center"/>
-                <Button x:Name="ExitBtn" Style="{StaticResource MainsButttons}"  Content="Выход"  HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                <Button x:Name="ExitBtn" Style="{StaticResource MainsButttons}"  Content="Выход"  HorizontalAlignment="Right" VerticalAlignment="Center" Click="ExitBtn_Click"/>
             </StackPanel>
 
         </StackPanel>
@@ -30,19 +30,6 @@
                 <SolidColorBrush Color="#FF040211" Opacity="0.4"/>
             </Frame.Background>
         </Frame>
-        <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <StackPanel Orientation="Horizontal" Margin="15" HorizontalAlignment="Center">
-                <Button x:Name="FishBtn" Style="{StaticResource ImportantBtn}"  Content="Рыбки"/>
-                <Button x:Name="AquariumBtn" Style="{StaticResource ImportantBtn}" Content="Аквариумы"/>
-                <Button x:Name="InventoryBtn" Style="{StaticResource ImportantBtn}" Content="Инвентарь"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="15" HorizontalAlignment="Center">
-                <Button x:Name="OrdersBtn" Style="{StaticResource ImportantBtn}" Content="Заказы"/>
-                <Button x:Name="OrderBtn" Style="{StaticResource ImportantBtn}" Content="Оформить заказ" Width="240"/>
-                <Button x:Name="AccountBtn" Style="{StaticResource ImportantBtn}" Content="Аккаунт"/>
-            </StackPanel>
-
-
-        </StackPanel>
+        
     </Grid>
 </Page>

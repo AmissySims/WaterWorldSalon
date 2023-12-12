@@ -16,28 +16,13 @@ using System.Windows.Shapes;
 namespace Courier.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainPage.xaml
+    /// Логика взаимодействия для AccountPage.xaml
     /// </summary>
-    public partial class MainPage : Page
+    public partial class AccountPage : Page
     {
-        public MainPage()
+        public AccountPage()
         {
             InitializeComponent();
-            MainFrame.NavigationService.Navigate(new MainMainPage());
-        }
-
-       
-
-       
-
-        private void MainBtn_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new MainPage());
-        }
-
-        private void ExitBtn_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new AuthPage());
         }
     }
 }
