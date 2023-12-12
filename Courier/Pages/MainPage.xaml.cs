@@ -24,5 +24,17 @@ namespace Courier.Pages
         {
             InitializeComponent();
         }
+
+       
+
+        private void OrderdBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AccountBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

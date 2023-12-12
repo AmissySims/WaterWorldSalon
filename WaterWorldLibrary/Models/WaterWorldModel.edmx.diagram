@@ -5,37 +5,37 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="2419d7c269a843538caccda1c67914a2" Name="Diagram1">
-        <EntityTypeShape EntityType="WaterWorldModel.Aquarium" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="WaterWorldModel.Busket" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WaterWorldModel.DeliveryPoint" Width="1.5" PointX="5.25" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="WaterWorldModel.DeliveryType" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="WaterWorldModel.Fish" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WaterWorldModel.Inventory" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
-        <EntityTypeShape EntityType="WaterWorldModel.Order" Width="1.5" PointX="7.5" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="WaterWorldModel.OrderFish" Width="1.5" PointX="9.75" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="WaterWorldModel.OrderInventory" Width="1.5" PointX="9.75" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="WaterWorldModel.Role" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="WaterWorldModel.StatusOrder" Width="1.5" PointX="5.25" PointY="12.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="WaterWorldModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="WaterWorldModel.TypeFish" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="WaterWorldModel.TypeInventory" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="WaterWorldModel.User" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
-        <AssociationConnector Association="WaterWorldModel.FK_Fish_Aquarium" ManuallyRouted="false" />
-        <AssociationConnector Association="WaterWorldModel.FK_Busket_Fish" ManuallyRouted="false" />
-        <AssociationConnector Association="WaterWorldModel.FK_Busket_Inventory" ManuallyRouted="false" />
-        <AssociationConnector Association="WaterWorldModel.FK_Busket_User" ManuallyRouted="false" />
-        <AssociationConnector Association="WaterWorldModel.FK_DeliveryPoint_User" ManuallyRouted="false" />
-        <AssociationConnector Association="WaterWorldModel.FK_Order_DeliveryPoint" ManuallyRouted="false" />
-        <AssociationConnector Association="WaterWorldModel.FK_Order_DeliveryType" ManuallyRouted="false" />
-        <AssociationConnector Association="WaterWorldModel.FK_Fish_TypeFish" ManuallyRouted="false" />
-        <AssociationConnector Association="WaterWorldModel.FK_OrderFish_Fish" ManuallyRouted="false" />
-        <AssociationConnector Association="WaterWorldModel.FK_Inventory_TypeInventory" ManuallyRouted="false" />
-        <AssociationConnector Association="WaterWorldModel.FK_OrderInventory_Inventory" ManuallyRouted="false" />
-        <AssociationConnector Association="WaterWorldModel.FK_Order_StatusOrder" ManuallyRouted="false" />
-        <AssociationConnector Association="WaterWorldModel.FK_Order_User" ManuallyRouted="false" />
-        <AssociationConnector Association="WaterWorldModel.FK_OrderFish_Order" ManuallyRouted="false" />
-        <AssociationConnector Association="WaterWorldModel.FK_OrderInventory_Order" ManuallyRouted="false" />
-        <AssociationConnector Association="WaterWorldModel.FK_User_Role" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="WaterWorldModel.Aquarium" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="WaterWorldModel.Busket" Width="1.5" PointX="5.25" PointY="6" />
+        <EntityTypeShape EntityType="WaterWorldModel.DeliveryPoint" Width="1.5" PointX="5.25" PointY="9.625" />
+        <EntityTypeShape EntityType="WaterWorldModel.DeliveryType" Width="1.5" PointX="5.25" PointY="2.625" />
+        <EntityTypeShape EntityType="WaterWorldModel.Fish" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="WaterWorldModel.Inventory" Width="1.5" PointX="3" PointY="12.125" />
+        <EntityTypeShape EntityType="WaterWorldModel.Order" Width="1.5" PointX="7.5" PointY="6.75" />
+        <EntityTypeShape EntityType="WaterWorldModel.OrderFish" Width="1.5" PointX="9.75" PointY="4.5" />
+        <EntityTypeShape EntityType="WaterWorldModel.OrderInventory" Width="1.5" PointX="9.75" PointY="7.5" />
+        <EntityTypeShape EntityType="WaterWorldModel.Role" Width="1.5" PointX="0.75" PointY="6.5" />
+        <EntityTypeShape EntityType="WaterWorldModel.StatusOrder" Width="1.5" PointX="5.25" PointY="13" />
+        <EntityTypeShape EntityType="WaterWorldModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="11.625" />
+        <EntityTypeShape EntityType="WaterWorldModel.TypeFish" Width="1.5" PointX="0.75" PointY="9.125" />
+        <EntityTypeShape EntityType="WaterWorldModel.TypeInventory" Width="1.5" PointX="0.75" PointY="12.75" />
+        <EntityTypeShape EntityType="WaterWorldModel.User" Width="1.5" PointX="3" PointY="5.75" />
+        <AssociationConnector Association="WaterWorldModel.FK_Fish_Aquarium" />
+        <AssociationConnector Association="WaterWorldModel.FK_Busket_Fish" />
+        <AssociationConnector Association="WaterWorldModel.FK_Busket_Inventory" />
+        <AssociationConnector Association="WaterWorldModel.FK_Busket_User" />
+        <AssociationConnector Association="WaterWorldModel.FK_DeliveryPoint_User" />
+        <AssociationConnector Association="WaterWorldModel.FK_Order_DeliveryPoint" />
+        <AssociationConnector Association="WaterWorldModel.FK_Order_DeliveryType" />
+        <AssociationConnector Association="WaterWorldModel.FK_Fish_TypeFish" />
+        <AssociationConnector Association="WaterWorldModel.FK_OrderFish_Fish" />
+        <AssociationConnector Association="WaterWorldModel.FK_Inventory_TypeInventory" />
+        <AssociationConnector Association="WaterWorldModel.FK_OrderInventory_Inventory" />
+        <AssociationConnector Association="WaterWorldModel.FK_Order_StatusOrder" />
+        <AssociationConnector Association="WaterWorldModel.FK_Order_User" />
+        <AssociationConnector Association="WaterWorldModel.FK_OrderFish_Order" />
+        <AssociationConnector Association="WaterWorldModel.FK_OrderInventory_Order" />
+        <AssociationConnector Association="WaterWorldModel.FK_User_Role" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

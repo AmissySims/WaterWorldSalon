@@ -28,6 +28,7 @@ namespace WaterWorldLibrary.Models
         public Nullable<int> TypeFishId { get; set; }
         public string Description { get; set; }
         public Nullable<int> AquariumId { get; set; }
+        public byte[] PhotoFish { get; set; }
     
         public virtual Aquarium Aquarium { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

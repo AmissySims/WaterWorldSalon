@@ -27,6 +27,7 @@ namespace WaterWorldLibrary.Models
         public Nullable<int> TypeInventoryId { get; set; }
         public Nullable<decimal> CostInvent { get; set; }
         public Nullable<int> CountInvent { get; set; }
+        public byte[] PhotoInvent { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Busket> Busket { get; set; }
