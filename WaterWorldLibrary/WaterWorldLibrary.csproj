@@ -37,6 +37,7 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -77,6 +78,10 @@
     <Compile Include="Models\OrderInventory.cs">
       <DependentUpon>WaterWorldModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Partials\CurrentUser.cs" />
+    <Compile Include="Models\Partials\Fish.cs" />
+    <Compile Include="Models\Partials\Inventory.cs" />
+    <Compile Include="Models\Partials\User.cs" />
     <Compile Include="Models\Role.cs">
       <DependentUpon>WaterWorldModel.tt</DependentUpon>
     </Compile>

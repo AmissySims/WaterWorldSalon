@@ -11,14 +11,14 @@
     <Grid>
         <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal" Margin="15" HorizontalAlignment="Center">
-                <Button x:Name="FishBtn" Style="{StaticResource ImportantBtn}"  Content="Рыбки"/>
-                <Button x:Name="AquariumBtn" Style="{StaticResource ImportantBtn}" Content="Аквариумы"/>
-                <Button x:Name="InventoryBtn" Style="{StaticResource ImportantBtn}" Content="Инвентарь"/>
+                <Button x:Name="FishBtn" Style="{StaticResource ImportantBtn}"  Content="Рыбки" Click="FishBtn_Click"/>
+                <Button x:Name="AquariumBtn" Style="{StaticResource ImportantBtn}" Content="Аквариумы" Click="AquariumBtn_Click"/>
+                <Button x:Name="InventoryBtn" Style="{StaticResource ImportantBtn}" Content="Инвентарь" Click="InventoryBtn_Click"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="15" HorizontalAlignment="Center">
-                <Button x:Name="OrdersBtn" Style="{StaticResource ImportantBtn}" Content="Заказы"/>
-                <Button x:Name="UsersBtn" Style="{StaticResource ImportantBtn}" Content="Пользователи" Width="198"/>
-                <Button x:Name="AccountBtn" Style="{StaticResource ImportantBtn}" Content="Аккаунт"/>
+                <Button x:Name="OrdersBtn" Style="{StaticResource ImportantBtn}" Content="Заказы" Click="OrdersBtn_Click"/>
+                <Button x:Name="UsersBtn" Style="{StaticResource ImportantBtn}" Content="Пользователи" Width="198" Click="UsersBtn_Click"/>
+                <Button x:Name="AccountBtn" Style="{StaticResource ImportantBtn}" Content="Аккаунт" Click="AccountBtn_Click"/>
             </StackPanel>
 
 

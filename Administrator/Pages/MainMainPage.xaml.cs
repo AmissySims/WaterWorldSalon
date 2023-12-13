@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WaterWorldLibrary.Models;
 
 namespace Administrator.Pages
 {
@@ -23,6 +24,37 @@ namespace Administrator.Pages
         public MainMainPage()
         {
             InitializeComponent();
+        }
+
+        private void FishBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new FishPage());
+        }
+
+        private void AquariumBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AquariumsPage());
+        }
+
+        private void InventoryBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new InventoryPage());
+        }
+
+        private void OrdersBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new OrdersPage());
+        }
+
+        private void UsersBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new UsersPage());
+        }
+
+        private void AccountBtn_Click(object sender, RoutedEventArgs e)
+        {
+      
+            NavigationService.Navigate(new AccountPage());
         }
     }
 }

@@ -1,0 +1,119 @@
+﻿<Page x:Class="Consultant.Pages.FishPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Consultant.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="FishPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="13*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" 
+                    Margin="5"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <TextBlock Text="Аквариумные рыбки" FontSize="18" />
+
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center"  VerticalAlignment="Center">
+            <Button Style="{StaticResource AllBtn}"  x:Name="AllFishBtn" Margin="5" Content="Все" Click="AllFishBtn_Click"/>
+            <Button Style="{StaticResource AllBtn}"  x:Name="FreshwaterFishBtn" Margin="5" Content="Пресноводные" Click="FreshwaterFishBtn_Click"/>
+            <Button Style="{StaticResource AllBtn}"  x:Name="SeaFishBtn" Margin="5" Content="Морские" Click="SeaFishBtn_Click"/>
+            <TextBlock Text="Сортировка" Margin="5 10"/>
+
+            <ComboBox Margin="5" x:Name="SortCb"
+                      Width="100"
+                      SelectedIndex="0"
+                      Height="20" SelectionChanged="SortCb_SelectionChanged"/>
+
+            <TextBlock Text="Поиск" Margin="5 10"/>
+
+            <TextBox Width="130"
+                    x:Name="FoundTb" Height="20"
+                     Margin="5 0" TextChanged="FoundTb_TextChanged"/>
+            <Button Style="{StaticResource AllBtn}" HorizontalAlignment="Right" x:Name="AddFishBtn" Margin="5" Content="+" Click="AddFishBtn_Click"/>
+        </StackPanel>
+        <ListView Grid.Row="2" Background="Transparent" BorderBrush="Transparent"
+                  x:Name="FishList" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  HorizontalAlignment="Center" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel HorizontalAlignment="Center" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="White"
+                           
+                            Padding="3" BorderThickness="3"
+                            Margin="5">
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition/>
+                                <RowDefinition/>
+
+                            </Grid.RowDefinitions>
+                            <Image Width="150" Height="150" Grid.Row="0" Margin="5"
+                                   x:Name="PhotoFish" 
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   RenderOptions.BitmapScalingMode="Fant">
+                                <Image.Source>
+                                    <Binding Path="PhotoFish">
+                                        <Binding.TargetNullValue>
+                                            <BitmapImage UriSource="\Resources\fish.jpg"/>
+                                        </Binding.TargetNullValue>
+                                    </Binding>
+                                </Image.Source>
+                            </Image>
+                            <StackPanel Grid.Row="1" 
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center" 
+                                        Margin="5">
+                                <TextBlock Text="{Binding Title}" TextWrapping="Wrap"
+                                           HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Cost, StringFormat='{}{0} ₽'}"
+                                           HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding TypeFish.Title}"
+                                           HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding IsAvalible}" Foreground="{Binding ColorAv}"
+                                           HorizontalAlignment="Center"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Аквариум "
+                                           HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding Aquarium.NumberAquarium}"
+                                           HorizontalAlignment="Center"/>
+                                </StackPanel>
+
+                            </StackPanel>
+                            <StackPanel Grid.Row="2">
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content=" Редактирование "
+                                        Margin="5 "
+                                       x:Name="EditBt"
+                                        Click="EditBt_Click"
+                                        Style="{StaticResource AllBtn}"/>
+                                    <Button Content=" Удаление "
+                                        Margin="5 "
+                                       x:Name="DeletBt"
+                                        Click="DeletBt_Click"
+                                        Style="{StaticResource AllBtn}"/>
+                                </StackPanel>
+
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+    </Grid>
+</Page>

@@ -27,7 +27,7 @@
      
         <Frame Grid.Row="1" x:Name="MainFrame" NavigationUIVisibility="Hidden">
             <Frame.Background>
-                <SolidColorBrush Color="#FF040211" Opacity="0.4"/>
+                <SolidColorBrush Color="#FF040211" Opacity="0.6"/>
             </Frame.Background>
         </Frame>
         
