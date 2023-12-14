@@ -23,6 +23,32 @@ namespace Consultant.Pages
         public AquariumsPage()
         {
             InitializeComponent();
+            Refresh();
+        }
+        public void Refresh()
+        {
+            var aqua = App.db.Aquarium.ToList();
+            AquaList.ItemsSource = aqua;
+        }
+        private void EatBtn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var corm = App.db.Inventory.FirstOrDefault(x => x.Id == 14);
+                corm.CountInvent -= 1;
+                App.db.SaveChanges();
+                MessageBox.Show("Рыбки покормлены", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Refresh();
         }
     }
 }

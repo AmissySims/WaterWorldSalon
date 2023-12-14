@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WaterWorldLibrary.Models;
 
 namespace Administrator.Pages
 {
@@ -23,6 +24,41 @@ namespace Administrator.Pages
         public AquariumsPage()
         {
             InitializeComponent();
+            Refresh();
+        }
+
+        public void Refresh()
+        {
+            var aqua = App.db.Aquarium.ToList();
+            AquaList.ItemsSource = aqua;
+        }
+        private void AddFAquariumBtn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Aquarium aqua = new Aquarium
+                {
+                    
+                };
+                App.db.Aquarium.Add(aqua);
+                
+                App.db.SaveChanges();
+                aqua.NumberAquarium = aqua.Id;
+                MessageBox.Show("Добавлен аквариум", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                Refresh();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Refresh();
         }
     }
 }

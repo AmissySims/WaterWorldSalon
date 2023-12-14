@@ -78,6 +78,7 @@
     <Compile Include="Models\OrderInventory.cs">
       <DependentUpon>WaterWorldModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Partials\Aquarium.cs" />
     <Compile Include="Models\Partials\CurrentUser.cs" />
     <Compile Include="Models\Partials\Fish.cs" />
     <Compile Include="Models\Partials\Inventory.cs" />

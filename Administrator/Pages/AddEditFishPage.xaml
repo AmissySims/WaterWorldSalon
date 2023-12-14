@@ -9,6 +9,99 @@
       Title="AddEditFishPage">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Margin="5"
+                    VerticalAlignment="Center">
+            <Image 
+                   Width="250"
+                   Height="250"
+                   
+                   RenderOptions.BitmapScalingMode="Fant">
+                <Image.Source>
+                    <Binding Path="PhotoFish">
+                        <Binding.TargetNullValue>
+                            <BitmapImage UriSource="\Resources\fish.jpg"/>
+                        </Binding.TargetNullValue>
+                    </Binding>
+                </Image.Source>
+            </Image>
+            <Button x:Name="AddImageBt" Content=" Изменить фото "
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Margin="5"
+                    Style="{StaticResource AllBtn}" 
+                    Click="AddImageBt_Click"/>
+
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Orientation="Vertical"
+                    Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Название" Style="{StaticResource Color}"
+                                   Margin="5"/>
+                <TextBox Text="{Binding Title}"
+                         PreviewTextInput="TextBox_PreviewTextInput_1"
+                          Margin="5"
+                         Width="200"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Описание" Style="{StaticResource Color}"
+                                   Margin="5"/>
+                <TextBox Text="{Binding Description}"
+                          Margin="5"
+                       
+                          Width="300" Height="200" TextWrapping="Wrap"/>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Количество" Style="{StaticResource Color}"
+                                   Margin="5"/>
+                <TextBox Text="{Binding CountFish}"
+                                   Margin="5"
+                             Width="80" PreviewTextInput="TextBox_PreviewTextInput"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Цена" Style="{StaticResource Color}"
+                                   Margin="5"/>
+                <TextBox Text="{Binding Cost}"
+                                   Margin="5" PreviewTextInput="TextBox_PreviewTextInput"
+                             Width="80"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Text="Вид" Margin="5" Style="{StaticResource Color}"/>
+                <ComboBox x:Name="TypeCb"
+                             Margin="5"
+                            DisplayMemberPath="Title"
+                            SelectedItem="{Binding TypeFish}"
+                          SelectedIndex="0"
+                          Width="200"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Text="Аквариум" Margin="5" Style="{StaticResource Color}"/>
+                <ComboBox x:Name="AquaCb"
+                             Margin="5"
+                            DisplayMemberPath="NumberAquarium"
+                            SelectedItem="{Binding Aquarium}"
+                          SelectedIndex="0"
+                          Width="100"/>
+            </StackPanel>
+            <Button x:Name="SaveBt"
+                            Content=" Сохранить "
+                            Style="{StaticResource AllBtn}"
+                    Margin="5" Click="SaveBt_Click"/>
+            <Button x:Name="CancelBt"  Content=" Отмена "
+                            Style="{StaticResource AllBtn
+                }"
+                    Margin="5" Click="CancelBt_Click"/>
+
+        </StackPanel>
     </Grid>
 </Page>

@@ -84,7 +84,7 @@
                                            HorizontalAlignment="Center"/>
                                 <TextBlock Text="{Binding TypeFish.Title}" Style="{StaticResource Color}"
                                            HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding IsAvalible}" Foreground="{Binding ColorAv}"
+                                <TextBlock Text="{Binding CountFish,StringFormat='{}{0} шт'}" Style="{StaticResource Color}"
                                            HorizontalAlignment="Center"/>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="Аквариум " Style="{StaticResource Color}"

@@ -5,10 +5,78 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Consultant.Pages"
       mc:Ignorable="d" 
+      Loaded="Page_Loaded"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AquariumsPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="7*"/>
+           
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" 
+                    Margin="5"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <TextBlock Style="{StaticResource Color}" Text="Аквариумы" FontSize="18" />
+
+        </StackPanel>
+       
+        <ListView Grid.Row="1" Background="Transparent" BorderBrush="Transparent"
+                  x:Name="AquaList" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  HorizontalAlignment="Center" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel HorizontalAlignment="Center" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="White"
+                           
+                            Padding="3" BorderThickness="3"
+                            Margin="5">
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition/>
+                                <RowDefinition/>
+
+                            </Grid.RowDefinitions>
+                            <Image Width="150" Height="150" Grid.Row="0" Margin="5"
+                                   x:Name="MainImage" 
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   RenderOptions.BitmapScalingMode="Fant" Source="\Resources\aqua.png" Stretch="Fill"/>
+
+
+                            <StackPanel Grid.Row="1" 
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center" 
+                                        Margin="5">
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Аквариум " 
+                                           HorizontalAlignment="Center" Style="{StaticResource Color}"/>
+                                    <TextBlock Text="{Binding NumberAquarium}"
+                                           HorizontalAlignment="Center" Style="{StaticResource Color}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Количество рыб " 
+                                           HorizontalAlignment="Center" Style="{StaticResource Color}"/>
+                                    <TextBlock Text="{Binding CountFishes}"
+                                           HorizontalAlignment="Center" Style="{StaticResource Color}"/>
+                                </StackPanel>
+                                <Button Content="Покормить рыб" Visibility="{Binding Visibility}" Style="{StaticResource AllBtn}" Click="EatBtn_Click" x:Name="EatBtn" Margin="5"/>
+                            </StackPanel>
+
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
     </Grid>
 </Page>

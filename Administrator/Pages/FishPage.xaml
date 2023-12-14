@@ -63,7 +63,7 @@
 
                             </Grid.RowDefinitions>
                             <Image Width="150" Height="150" Grid.Row="0" Margin="5"
-                                   x:Name="MainImage" 
+                                   x:Name="PhotoFish" 
                                    HorizontalAlignment="Center" VerticalAlignment="Center"
                                    RenderOptions.BitmapScalingMode="Fant">
                                 <Image.Source>
