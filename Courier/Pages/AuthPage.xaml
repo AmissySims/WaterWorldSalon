@@ -14,10 +14,10 @@
         </Grid.Background>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">
             <Image Source="\Resources\рыбы.png" Width="200" RenderOptions.BitmapScalingMode="Fant"/>
-            <TextBlock Text="АВТОРИЗАЦИЯ" FontWeight="Bold" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
-            <TextBlock Text="Логин" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
+            <TextBlock Style="{StaticResource Color}" Text="АВТОРИЗАЦИЯ" FontWeight="Bold" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
+            <TextBlock Text="Логин" Style="{StaticResource Color}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
             <TextBox x:Name="LoginTb" Width="100" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
-            <TextBlock Text="Пароль" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
+            <TextBlock Text="Пароль" Style="{StaticResource Color}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
             <PasswordBox x:Name="PasswordPb" Width="100" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
             <Button x:Name="AuthBtn" Style="{StaticResource AllBtn}" Width="100" Content="Войти" Click="CElAuthBtn" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
         </StackPanel>

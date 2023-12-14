@@ -45,44 +45,44 @@
                             Orientation="Vertical"
                             Grid.Column="1">
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Имя"
+                                <TextBlock Text="Имя" Style="{StaticResource Color}"
                                    Margin="5"/>
                                 <TextBlock Text="{Binding Name}"
-                                   
+                                   Style="{StaticResource Color}"
                                       Margin="5"
                                      Width="200"/>
 
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Фамилия"
+                                <TextBlock Text="Фамилия" Style="{StaticResource Color}"
                                    Margin="5"/>
                                 <TextBlock Text="{Binding FName}"
                                     Margin="5"
-                                         Width="200" />
+                                         Width="200" Style="{StaticResource Color}"/>
 
                             </StackPanel>
                            
                            
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Логин"
+                                <TextBlock Text="Логин" Style="{StaticResource Color}"
                                    Margin="5"/>
                                 <TextBlock Text="{Binding Login}"
-                                   Margin="5"
+                                   Margin="5" Style="{StaticResource Color}"
                              Width="200"/>
 
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Пароль"
+                                <TextBlock Text="Пароль" Style="{StaticResource Color}"
                                    Margin="5"/>
                                 <TextBlock Text="{Binding Password}"
-                                   Margin="5"
+                                   Margin="5" Style="{StaticResource Color}"
                                 Width="200"/>
 
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" x:Name="RoleStack">
-                                <TextBlock Text="Роль" Margin="5" />
+                                <TextBlock Text="Роль" Margin="5" Style="{StaticResource Color}" />
                                 <TextBlock x:Name="RoleCb"
-                                           Margin="5"
+                                           Margin="5" Style="{StaticResource Color}"
                                         Text="{Binding Role.Title}"
                                     Width="200"/>
                             </StackPanel>

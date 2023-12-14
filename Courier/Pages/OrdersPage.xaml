@@ -19,7 +19,7 @@
                     Orientation="Horizontal"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center">
-            <TextBlock Text="Заказы" 
+            <TextBlock Text="Заказы" Style="{StaticResource Color}"
                        FontSize="18"/>
 
 
@@ -48,29 +48,29 @@
                             <StackPanel Grid.Row="0">
                                
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="Статус"
+                                    <TextBlock Text="Статус" Style="{StaticResource Color}"
                                        Margin="10 5"/>
-                                    <TextBlock Text="{Binding StatusOrder.Title}"
+                                    <TextBlock Text="{Binding StatusOrder.Title}" Style="{StaticResource Color}"
                                        Margin="5 5"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="Заказчик" Margin="10 5"/>
-                                    <TextBlock Text="{Binding User.FullName}"
+                                    <TextBlock Text="Заказчик" Style="{StaticResource Color}" Margin="10 5"/>
+                                    <TextBlock Text="{Binding User.FullName}" Style="{StaticResource Color}"
                                        Margin="5 5"/>
 
 
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="Дата" 
+                                    <TextBlock Text="Дата"  Style="{StaticResource Color}"
                                       Margin="10 5"/>
-                                    <TextBlock Text="{Binding Date, StringFormat=dd.MM.yyyy}"
+                                    <TextBlock Text="{Binding Date, StringFormat=dd.MM.yyyy}" Style="{StaticResource Color}"
                                        Margin="5 5"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="Кол-во товаров" 
+                                    <TextBlock Text="Кол-во товаров"  Style="{StaticResource Color}"
                                       Margin="10 5"/>
                                     <TextBlock Text="{Binding Count, StringFormat='{}{0} шт.'}"
-                                       Margin="5 5"/>
+                                       Margin="5 5" Style="{StaticResource Color}"/>
 
 
 
@@ -78,17 +78,17 @@
 
 
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="Сумма заказа" 
+                                    <TextBlock Text="Сумма заказа" Style="{StaticResource Color}"
                                        Margin="10 5"/>
-                                    <TextBlock Text="{Binding TotalPrice, StringFormat='{}{0} ₽'}"
+                                    <TextBlock Text="{Binding TotalPrice, StringFormat='{}{0} ₽'}" Style="{StaticResource Color}"
                                       Margin="5 5"/>
 
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
 
-                                    <TextBlock Text="Тип доставки" 
+                                    <TextBlock Text="Тип доставки" Style="{StaticResource Color}"
                                        Margin="10 5"/>
-                                    <TextBlock Text="{Binding DeliveryType.Title}"
+                                    <TextBlock Text="{Binding DeliveryType.Title}" Style="{StaticResource Color}"
                                        Margin="5"/>
 
                                 </StackPanel>
@@ -96,10 +96,10 @@
                                     <StackPanel  
                                         Orientation="Horizontal" Visibility="{Binding AdressVisible}">
 
-                                        <TextBlock Text="Адрес" 
+                                        <TextBlock Text="Адрес"  Style="{StaticResource Color}"
                                        Margin="10 5"/>
                                         <TextBlock TextWrapping="Wrap"
-                                        Text="{Binding AdressToDelivery}"
+                                        Text="{Binding AdressToDelivery}" Style="{StaticResource Color}"
                                        Margin="5"/>
 
                                     </StackPanel>
@@ -128,8 +128,8 @@
                                         <DataTemplate>
                                             <Border BorderThickness="1" BorderBrush="White" Padding="2" >
                                                 <StackPanel>
-                                                    <TextBlock Text="{Binding Fish.Title}"/>
-                                                    <TextBlock Text="{Binding Count, StringFormat='{}{0} шт.'}"/>
+                                                    <TextBlock Text="{Binding Fish.Title}" Style="{StaticResource Color}"/>
+                                                    <TextBlock Text="{Binding Count, StringFormat='{}{0} шт.'}" Style="{StaticResource Color}"/>
                                                 </StackPanel>
                                             </Border>
                                         </DataTemplate>
@@ -152,8 +152,8 @@
                                         <DataTemplate>
                                             <Border BorderThickness="1" BorderBrush="White" Padding="2" >
                                                 <StackPanel>
-                                                    <TextBlock Text="{Binding Inventory.Title}"/>
-                                                    <TextBlock Text="{Binding Count, StringFormat='{}{0} шт.'}"/>
+                                                    <TextBlock Text="{Binding Inventory.Title}" Style="{StaticResource Color}"/>
+                                                    <TextBlock Text="{Binding Count, StringFormat='{}{0} шт.'}" Style="{StaticResource Color}"/>
                                                 </StackPanel>
                                             </Border>
                                         </DataTemplate>

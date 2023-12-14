@@ -19,21 +19,21 @@
                     Orientation="Horizontal"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center">
-            <TextBlock Text="Аквариумные рыбки" FontSize="18" />
+            <TextBlock Style="{StaticResource Color}" Text="Аквариумные рыбки" FontSize="18" />
             
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center"  VerticalAlignment="Center">
             <Button Style="{StaticResource AllBtn}"  x:Name="AllFishBtn" Margin="5" Content="Все" Click="AllFishBtn_Click"/>
             <Button Style="{StaticResource AllBtn}"  x:Name="FreshwaterFishBtn" Margin="5" Content="Пресноводные" Click="FreshwaterFishBtn_Click"/>
             <Button Style="{StaticResource AllBtn}"  x:Name="SeaFishBtn" Margin="5" Content="Морские" Click="SeaFishBtn_Click"/>
-            <TextBlock Text="Сортировка" Margin="5 10"/>
+            <TextBlock Text="Сортировка" Margin="5 10" Style="{StaticResource Color}"/>
 
             <ComboBox Margin="5" x:Name="SortCb"
                       Width="100"
                       SelectedIndex="0"
                       Height="20" SelectionChanged="SortCb_SelectionChanged"/>
 
-            <TextBlock Text="Поиск" Margin="5 10"/>
+            <TextBlock Text="Поиск" Style="{StaticResource Color}" Margin="5 10"/>
 
             <TextBox Width="130"
                     x:Name="FoundTb" Height="20"
@@ -78,19 +78,19 @@
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Center" 
                                         Margin="5">
-                                <TextBlock Text="{Binding Title}" TextWrapping="Wrap"
+                                <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource Color}"
                                            HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding Cost, StringFormat='{}{0} ₽'}"
+                                <TextBlock Text="{Binding Cost, StringFormat='{}{0} ₽'}" Style="{StaticResource Color}"
                                            HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding TypeFish.Title}"
+                                <TextBlock Text="{Binding TypeFish.Title}" Style="{StaticResource Color}"
                                            HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding IsAvalible}" Foreground="{Binding ColorAv}"
+                                <TextBlock Text="{Binding IsAvalible}" Style="{StaticResource Color}" Foreground="{Binding ColorAv}"
                                            HorizontalAlignment="Center"/>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="Аквариум "
-                                           HorizontalAlignment="Center"/>
+                                    <TextBlock Text="Аквариум " 
+                                           HorizontalAlignment="Center" Style="{StaticResource Color}"/>
                                     <TextBlock Text="{Binding Aquarium.NumberAquarium}"
-                                           HorizontalAlignment="Center"/>
+                                           HorizontalAlignment="Center" Style="{StaticResource Color}"/>
                                 </StackPanel>
                                
                             </StackPanel>

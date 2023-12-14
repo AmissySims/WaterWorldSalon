@@ -45,7 +45,7 @@ namespace WaterWorldLibrary.Models
                 {
                     return Brushes.Red;
                 }
-                else { return Brushes.Green; }
+                else { return Brushes.LightGreen; }
             }
         }
 

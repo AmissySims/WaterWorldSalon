@@ -19,26 +19,26 @@
                     Orientation="Horizontal"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center">
-            <TextBlock Text="Аквариумные рыбки" FontSize="18" />
+            <TextBlock Style="{StaticResource Color}" Text="Аквариумные рыбки" FontSize="18" />
 
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center"  VerticalAlignment="Center">
             <Button Style="{StaticResource AllBtn}"  x:Name="AllFishBtn" Margin="5" Content="Все" Click="AllFishBtn_Click"/>
             <Button Style="{StaticResource AllBtn}"  x:Name="FreshwaterFishBtn" Margin="5" Content="Пресноводные" Click="FreshwaterFishBtn_Click"/>
             <Button Style="{StaticResource AllBtn}"  x:Name="SeaFishBtn" Margin="5" Content="Морские" Click="SeaFishBtn_Click"/>
-            <TextBlock Text="Сортировка" Margin="5 10"/>
+            <TextBlock Style="{StaticResource Color}" Text="Сортировка" Margin="5 10"/>
 
             <ComboBox Margin="5" x:Name="SortCb"
                       Width="100"
                       SelectedIndex="0"
                       Height="20" SelectionChanged="SortCb_SelectionChanged"/>
 
-            <TextBlock Text="Поиск" Margin="5 10"/>
+            <TextBlock Text="Поиск" Style="{StaticResource Color}" Margin="5 10"/>
 
             <TextBox Width="130"
                     x:Name="FoundTb" Height="20"
                      Margin="5 0" TextChanged="FoundTb_TextChanged"/>
-            <Button Style="{StaticResource AllBtn}" HorizontalAlignment="Right" x:Name="AddFishBtn" Margin="5" Content="+" Click="AddFishBtn_Click"/>
+          
         </StackPanel>
         <ListView Grid.Row="2" Background="Transparent" BorderBrush="Transparent"
                   x:Name="FishList" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
@@ -78,34 +78,34 @@
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Center" 
                                         Margin="5">
-                                <TextBlock Text="{Binding Title}" TextWrapping="Wrap"
+                                <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource Color}"
                                            HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding Cost, StringFormat='{}{0} ₽'}"
+                                <TextBlock Text="{Binding Cost, StringFormat='{}{0} ₽'}" Style="{StaticResource Color}"
                                            HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding TypeFish.Title}"
+                                <TextBlock Text="{Binding TypeFish.Title}" Style="{StaticResource Color}"
                                            HorizontalAlignment="Center"/>
                                 <TextBlock Text="{Binding IsAvalible}" Foreground="{Binding ColorAv}"
                                            HorizontalAlignment="Center"/>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="Аквариум "
+                                    <TextBlock Text="Аквариум " Style="{StaticResource Color}"
                                            HorizontalAlignment="Center"/>
-                                    <TextBlock Text="{Binding Aquarium.NumberAquarium}"
+                                    <TextBlock Text="{Binding Aquarium.NumberAquarium}" Style="{StaticResource Color}"
                                            HorizontalAlignment="Center"/>
                                 </StackPanel>
 
                             </StackPanel>
                             <StackPanel Grid.Row="2">
                                 <StackPanel Orientation="Horizontal">
-                                    <Button Content=" Редактирование "
+                                    <Button Content=" Просмотр "
                                         Margin="5 "
-                                       x:Name="EditBt"
-                                        Click="EditBt_Click"
-                                        Style="{StaticResource AllBtn}"/>
-                                    <Button Content=" Удаление "
+                                       x:Name="LookBt"
+                                        
+                                        Style="{StaticResource AllBtn}" Click="LookBt_Click"/>
+                                    <Button Content=" В корзину "
                                         Margin="5 "
-                                       x:Name="DeletBt"
-                                        Click="DeletBt_Click"
-                                        Style="{StaticResource AllBtn}"/>
+                                       x:Name="BuscketBt"
+                                        
+                                        Style="{StaticResource AllBtn}" Click="BuscketBt_Click"/>
                                 </StackPanel>
 
                             </StackPanel>

@@ -41,7 +41,7 @@
                             Orientation="Vertical"
                     Grid.Column="1">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Имя"
+                <TextBlock Text="Имя" Style="{StaticResource Color}"
                                    Margin="5"/>
                 <TextBox Text="{Binding Name}"
                          PreviewTextInput="TextBox_PreviewTextInput"
@@ -50,7 +50,7 @@
 
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Фамилия"
+                <TextBlock Text="Фамилия" Style="{StaticResource Color}"
                                    Margin="5"/>
                 <TextBox Text="{Binding FName}"
                           Margin="5"
@@ -61,7 +61,7 @@
            
            
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Логин"
+                <TextBlock Text="Логин" Style="{StaticResource Color}"
                                    Margin="5"/>
                 <TextBox Text="{Binding Login}"
                                    Margin="5"
@@ -69,7 +69,7 @@
 
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Пароль"
+                <TextBlock Text="Пароль" Style="{StaticResource Color}"
                                    Margin="5"/>
                 <TextBox Text="{Binding Password}"
                                    Margin="5"

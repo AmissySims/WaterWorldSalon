@@ -24,5 +24,35 @@ namespace Consultant.Pages
         {
             InitializeComponent();
         }
+
+        private void FishBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new FishPage());
+        }
+
+        private void AccountBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AccountPage());
+        }
+
+        private void BucketBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new BuscketPage());
+        }
+
+        private void AquariumBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AquariumsPage());
+        }
+
+        private void OrdersBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new OrdersPage());
+        }
+
+        private void InventoryBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new InventoryPage());
+        }
     }
 }
