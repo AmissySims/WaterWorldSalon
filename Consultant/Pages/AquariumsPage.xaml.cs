@@ -35,10 +35,19 @@ namespace Consultant.Pages
             try
             {
                 var corm = App.db.Inventory.FirstOrDefault(x => x.Id == 14);
-                corm.CountInvent -= 1;
-                App.db.SaveChanges();
-                MessageBox.Show("Рыбки покормлены", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                Refresh();
+
+                if(corm.CountInvent > 0)
+                {
+                    corm.CountInvent -= 1;
+                    App.db.SaveChanges();
+                    MessageBox.Show("Рыбки покормлены", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Refresh();
+                }
+                else
+                {
+                    MessageBox.Show("Недостаточно корма", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+               
             }
             catch (Exception ex)
             {
