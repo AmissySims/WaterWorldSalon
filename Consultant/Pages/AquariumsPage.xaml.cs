@@ -46,6 +46,7 @@ namespace Consultant.Pages
                 else
                 {
                     MessageBox.Show("Недостаточно корма", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
                 }
                
             }
