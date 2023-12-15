@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Consultant.Windows"
         mc:Ignorable="d"
-        Title="EditStatusWin" Height="200" Width="300">
+        Title="EditStatusWin" Height="200" Width="300" Background="DarkBlue">
     <Grid>
-        
+        <StackPanel HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"
+                    Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Статус" Margin="5" Style="{StaticResource Color}"/>
+                <ComboBox x:Name="StatusCb" 
+                      Margin="5"
+                      DisplayMemberPath="Title"
+                      SelectedItem="{Binding StatusOrder}"
+                      Width="150"/>
+            </StackPanel>
+
+            <StackPanel >
+                <Button x:Name="SaveBt"
+                    Content="Сохранить"
+                    Style="{StaticResource AllBtn}"
+                Margin="5" Click="SaveBt_Click"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

@@ -5,10 +5,168 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Client.Pages"
       mc:Ignorable="d" 
+      Loaded="Page_Loaded"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="OrdersPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0"
+                    Margin="5"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <TextBlock Text="Заказы" Style="{StaticResource Color}"
+                       FontSize="18"/>
+
+
+        </StackPanel>
+        <ListView Grid.Row="1"
+                  x:Name="OrdersList"
+                  HorizontalAlignment="Center"
+                 Background="Transparent" BorderBrush="Transparent"
+                  Margin="5 0" d:ItemsSource="{d:SampleData ItemCount=5}" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Padding="3" BorderBrush="White"
+                            BorderThickness="3">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+
+                            </Grid.RowDefinitions>
+
+
+                            <StackPanel Grid.Row="0">
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Статус" Style="{StaticResource Color}"
+                                       Margin="10 5"/>
+                                    <TextBlock Text="{Binding StatusOrder.Title}" Style="{StaticResource Color}"
+                                       Margin="5 5"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Заказчик" Style="{StaticResource Color}" Margin="10 5"/>
+                                    <TextBlock Text="{Binding User.FullName}" Style="{StaticResource Color}"
+                                       Margin="5 5"/>
+
+
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Дата"  Style="{StaticResource Color}"
+                                      Margin="10 5"/>
+                                    <TextBlock Text="{Binding Date, StringFormat=dd.MM.yyyy}" Style="{StaticResource Color}"
+                                       Margin="5 5"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Кол-во товаров"  Style="{StaticResource Color}"
+                                      Margin="10 5"/>
+                                    <TextBlock Text="{Binding Count, StringFormat='{}{0} шт.'}"
+                                       Margin="5 5" Style="{StaticResource Color}"/>
+
+
+
+                                </StackPanel>
+
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Сумма заказа" Style="{StaticResource Color}"
+                                       Margin="10 5"/>
+                                    <TextBlock Text="{Binding TotalPrice, StringFormat='{}{0} ₽'}" Style="{StaticResource Color}"
+                                      Margin="5 5"/>
+
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+
+                                    <TextBlock Text="Тип доставки" Style="{StaticResource Color}"
+                                       Margin="10 5"/>
+                                    <TextBlock Text="{Binding DeliveryType.Title}" Style="{StaticResource Color}"
+                                       Margin="5"/>
+
+                                </StackPanel>
+                                <StackPanel Grid.Row="1">
+                                    <StackPanel  
+                                        Orientation="Horizontal" Visibility="{Binding AdressVisible}">
+
+                                        <TextBlock Text="Адрес"  Style="{StaticResource Color}"
+                                       Margin="10 5"/>
+                                        <TextBlock TextWrapping="Wrap"
+                                        Text="{Binding AdressToDelivery}" Style="{StaticResource Color}"
+                                       Margin="5"/>
+
+                                    </StackPanel>
+
+
+                                </StackPanel>
+
+                            </StackPanel>
+
+
+                            <StackPanel Grid.Column="1" Grid.Row="0">
+                                <ListBox 
+                                         ItemsSource="{Binding OrderFish}"
+                                         Margin="5"
+                                    Background="Transparent"
+                                         BorderBrush="White"
+                                         BorderThickness="2"
+                                         Padding="2"
+                                         MaxWidth="200">
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel IsItemsHost="True"/>
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border BorderThickness="1" BorderBrush="White" Padding="2" >
+                                                <StackPanel>
+                                                    <TextBlock Text="{Binding Fish.Title}" Style="{StaticResource Color}"/>
+                                                    <TextBlock Text="{Binding Count, StringFormat='{}{0} шт.'}" Style="{StaticResource Color}"/>
+                                                </StackPanel>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                                <ListBox 
+                                         ItemsSource="{Binding OrderInventory}"
+                                         Margin="5"
+                                    Background="Transparent"
+                                         BorderBrush="White"
+                                         BorderThickness="2"
+                                         Padding="2"
+                                         MaxWidth="200">
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel IsItemsHost="True"/>
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border BorderThickness="1" BorderBrush="White" Padding="2" >
+                                                <StackPanel>
+                                                    <TextBlock Text="{Binding Inventory.Title}" Style="{StaticResource Color}"/>
+                                                    <TextBlock Text="{Binding Count, StringFormat='{}{0} шт.'}" Style="{StaticResource Color}"/>
+                                                </StackPanel>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                                
+                            </StackPanel>
+
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
     </Grid>
 </Page>

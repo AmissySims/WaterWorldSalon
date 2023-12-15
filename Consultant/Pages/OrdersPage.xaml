@@ -162,16 +162,12 @@
                                 <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
                                     <Button Margin="5" 
                                             Style="{StaticResource AllBtn}"
-                                                Visibility="{Binding EditVisible}"
-                                            x:Name="CancelOrdBt"
-                                            Content=" Отменить заказ "
-                                                Click="CancelOrdBt_Click"/>
-                                    <Button Margin="5" 
-                                            Style="{StaticResource AllBtn}"
-                                                Visibility="{Binding EditVisible}"
-                                            x:Name="DoneOrdBt"
-                                            Content=" Выдать заказ "
-                                                Click="DoneOrdBt_Click"/>
+                                             
+                                            x:Name="EditOrdBt"
+                                            Visibility="{Binding EditVisible}"
+                                            Content=" Измнеть статус "
+                                                Click="EditOrdBt_Click"/>
+                                 
                                 </StackPanel>
                             </StackPanel>
 

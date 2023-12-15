@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Administrator.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WaterWorldLibrary.Models;
 
 namespace Administrator.Pages
 {
@@ -23,6 +25,31 @@ namespace Administrator.Pages
         public OrdersPage()
         {
             InitializeComponent();
+            Refresh();
+        }
+
+        private void Refresh()
+        {
+
+
+            var ord = App.db.Order.ToList();
+
+
+
+
+            OrdersList.ItemsSource = ord;
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void EditOrdBt_Click(object sender, RoutedEventArgs e)
+        {
+            EditStatusWin editOrder = new EditStatusWin((sender as Button).DataContext as Order);
+            editOrder.ShowDialog();
+            Refresh();
         }
     }
 }

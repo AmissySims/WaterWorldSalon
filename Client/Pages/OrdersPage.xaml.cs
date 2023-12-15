@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WaterWorldLibrary.Models;
 
 namespace Client.Pages
 {
@@ -23,6 +24,23 @@ namespace Client.Pages
         public OrdersPage()
         {
             InitializeComponent();
+            Refresh();
+        }
+        private void Refresh()
+        {
+
+
+            var ord = App.db.Order.Where(z => z.UserId == CurrentUser.AuthUser.Id).ToList();
+
+
+
+
+            OrdersList.ItemsSource = ord;
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Refresh();
         }
     }
 }

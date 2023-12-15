@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Consultant.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,7 @@ namespace Consultant.Pages
         public OrdersPage()
         {
             InitializeComponent();
+            Refresh();
         }
         private void Refresh()
         {
@@ -36,41 +38,16 @@ namespace Consultant.Pages
 
             OrdersList.ItemsSource = ord;
         }
-        private void CancelOrdBt_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                var selOrd = (sender as Button).DataContext as Order;
-                selOrd.StatusOrderId = 6;
-                MessageBox.Show("Отменено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                App.db.SaveChanges();
-                Refresh();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-
-        }
-
-        private void DoneOrdBt_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                var selOrd = (sender as Button).DataContext as Order;
-                selOrd.StatusOrderId = 5;
-                MessageBox.Show("Выдано", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                App.db.SaveChanges();
-                Refresh();
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
+        
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            Refresh();
+        }
+
+        private void EditOrdBt_Click(object sender, RoutedEventArgs e)
+        {
+            EditStatusWin editOrder = new EditStatusWin((sender as Button).DataContext as Order);
+            editOrder.ShowDialog();
             Refresh();
         }
     }
