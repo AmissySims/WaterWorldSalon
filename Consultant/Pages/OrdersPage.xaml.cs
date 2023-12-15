@@ -31,7 +31,7 @@ namespace Consultant.Pages
         {
 
 
-            var ord = App.db.Order.Where(z => z.DeliveryTypeId == 1).ToList();
+            var ord = App.db.Order.Where(z => z.DeliveryTypeId == 1 && z.DeliveryPoint.UserId == CurrentUser.AuthUser.Id ).ToList();
 
 
 

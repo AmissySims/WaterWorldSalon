@@ -165,7 +165,7 @@
                                              
                                             x:Name="EditOrdBt"
                                             Visibility="{Binding EditVisible}"
-                                            Content=" Измнеть статус "
+                                            Content=" Изменить статус "
                                                 Click="EditOrdBt_Click"/>
                                  
                                 </StackPanel>
