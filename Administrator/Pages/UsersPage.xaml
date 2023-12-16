@@ -34,6 +34,7 @@
                     Margin="5" Style="{StaticResource AllBtn}"
                      Width="30"
                     Click="AddBt_Click"/>
+            
 
         </StackPanel>
         <ListView d:ItemsSource="{d:SampleData ItemCount=5}"

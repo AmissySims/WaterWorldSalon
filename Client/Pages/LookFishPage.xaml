@@ -1,12 +1,12 @@
-﻿<Page x:Class="Administrator.Pages.AddEditFishPage"
+﻿<Page x:Class="Client.Pages.LookFishPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Administrator.Pages"
+      xmlns:local="clr-namespace:Client.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AddEditFishPage">
+      Title="LookFishPage">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -28,12 +28,7 @@
                     </Binding>
                 </Image.Source>
             </Image>
-            <Button x:Name="AddImageBt" Content=" Изменить фото "
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center"
-                    Margin="5"
-                    Style="{StaticResource AllBtn}" 
-                    Click="AddImageBt_Click"/>
+
 
         </StackPanel>
         <StackPanel HorizontalAlignment="Center"
@@ -43,9 +38,9 @@
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Название" Style="{StaticResource Color}"
                                    Margin="5"/>
-                <TextBox Text="{Binding Title}"
-                         PreviewTextInput="TextBox_PreviewTextInput_1"
-                          Margin="5"
+                <TextBlock Text="{Binding Title}"
+                       
+                          Margin="5" Style="{StaticResource Color}"
                          TextWrapping="Wrap"
                          Height="40"
                          Width="250"/>
@@ -54,9 +49,9 @@
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Описание" Style="{StaticResource Color}"
                                    Margin="5"/>
-                <TextBox Text="{Binding Description}"
+                <TextBlock Text="{Binding Description}"
                           Margin="5"
-                       
+                     Style="{StaticResource Color}" 
                           Width="300" Height="200" TextWrapping="Wrap"/>
 
             </StackPanel>
@@ -64,41 +59,31 @@
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Количество" Style="{StaticResource Color}"
                                    Margin="5"/>
-                <TextBox Text="{Binding CountFish}"
+                <TextBlock Text="{Binding CountFish}"
                                    Margin="5"
-                             Width="80" PreviewTextInput="TextBox_PreviewTextInput"/>
+                             Width="80" Style="{StaticResource Color}"/>
 
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Цена" Style="{StaticResource Color}"
                                    Margin="5"/>
-                <TextBox Text="{Binding Cost}"
-                                   Margin="5" PreviewTextInput="TextBox_PreviewTextInput"
+                <TextBlock Text="{Binding Cost}" Style="{StaticResource Color}"
+                                   Margin="5" 
                              Width="80"/>
 
             </StackPanel>
             <StackPanel Orientation="Horizontal" >
                 <TextBlock Text="Вид" Margin="5" Style="{StaticResource Color}"/>
-                <ComboBox x:Name="TypeCb"
-                             Margin="5"
-                            DisplayMemberPath="Title"
-                            SelectedItem="{Binding TypeFish}"
-                          SelectedIndex="0"
-                          Width="200"/>
+                <TextBlock Text="{Binding TypeFish.Title}" Style="{StaticResource Color}"
+                                   Margin="5" 
+                             Width="80"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" >
-                <TextBlock Text="Аквариум" Margin="5" Style="{StaticResource Color}"/>
-                <ComboBox x:Name="AquaCb"
-                             Margin="5"
-                            DisplayMemberPath="NumberAquarium"
-                            SelectedItem="{Binding Aquarium}"
-                          SelectedIndex="0"
-                          Width="100"/>
-            </StackPanel>
-            <Button x:Name="SaveBt"
-                            Content=" Сохранить "
+           
+           
+            <Button x:Name="BusketBt"
+                            Content=" В корзину "
                             Style="{StaticResource AllBtn}"
-                    Margin="5" Click="SaveBt_Click"/>
+                    Margin="5" Click="BusketBt_Click"/>
             <Button x:Name="CancelBt"  Content=" Отмена "
                             Style="{StaticResource AllBtn
                 }"

@@ -69,6 +69,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Pages\AddEditInventPage.xaml.cs">
+      <DependentUpon>AddEditInventPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DeliveryPointsPage.xaml.cs">
+      <DependentUpon>DeliveryPointsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FishTypesPage.xaml.cs">
+      <DependentUpon>FishTypesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InventTypesPage.xaml.cs">
+      <DependentUpon>InventTypesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TypesMainPage.xaml.cs">
+      <DependentUpon>TypesMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddEditFishTypeWin.xaml.cs">
+      <DependentUpon>AddEditFishTypeWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddEditInventTypeWin.xaml.cs">
+      <DependentUpon>AddEditInventTypeWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\EditStatusWin.xaml.cs">
       <DependentUpon>EditStatusWin.xaml</DependentUpon>
     </Compile>
@@ -92,6 +113,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\AddEditInventPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AddEditUserPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -104,11 +129,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\DeliveryPointsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\FishPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\FishTypesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\InventoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\InventTypesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -124,7 +161,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\TypesMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\UsersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddEditFishTypeWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddEditInventTypeWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -219,6 +268,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\aqua.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\invent.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

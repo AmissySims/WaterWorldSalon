@@ -56,5 +56,15 @@ namespace Administrator.Pages
       
             NavigationService.Navigate(new AccountPage());
         }
+
+        private void PointsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new DeliveryPointsPage());
+        }
+
+        private void TypesBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

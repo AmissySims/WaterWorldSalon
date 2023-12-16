@@ -109,6 +109,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\LookFishPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\LookPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -151,6 +155,9 @@
     </Compile>
     <Compile Include="Pages\InventoryPage.xaml.cs">
       <DependentUpon>InventoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LookFishPage.xaml.cs">
+      <DependentUpon>LookFishPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\LookPage.xaml.cs">
       <DependentUpon>LookPage.xaml</DependentUpon>
@@ -219,6 +226,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\aqua.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\invent.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

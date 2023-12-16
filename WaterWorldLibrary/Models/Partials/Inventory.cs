@@ -3,10 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace WaterWorldLibrary.Models
 {
     public partial class Inventory
     {
+
+        public string IsAvalible
+        {
+            get
+            {
+
+
+                if (CountInvent == 0)
+                {
+                    return $"Нет в наличии";
+                }
+                else { return $"В наличии"; }
+            }
+        }
+
+        public SolidColorBrush ColorAv
+        {
+            get
+            {
+
+                if (CountInvent == 0)
+                {
+                    return Brushes.Red;
+                }
+                else { return Brushes.LightGreen; }
+            }
+        }
     }
 }

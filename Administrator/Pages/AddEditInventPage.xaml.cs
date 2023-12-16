@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.IO;
 using System.Linq;
-using System.Security.RightsManagement;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,78 +20,75 @@ using WaterWorldLibrary.Models;
 namespace Administrator.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для AddEditFishPage.xaml
+    /// Логика взаимодействия для AddEditInventPage.xaml
     /// </summary>
-    public partial class AddEditFishPage : Page
+    public partial class AddEditInventPage : Page
     {
-        Fish contextFish;
+        Inventory contextInvent;
         DbPropertyValues oldValues;
-        public AddEditFishPage(Fish fish)
+        public AddEditInventPage(Inventory invent)
         {
             InitializeComponent();
-            var aqua = App.db.Aquarium.ToList();
-            AquaCb.ItemsSource = aqua;
-            var typeF = App.db.TypeFish.ToList();
-            TypeCb.ItemsSource = typeF;
-            contextFish = fish;
-            DataContext = contextFish;
-            if (contextFish.Id != 0)
+            var typeInvent = App.db.TypeInventory.ToList();
+            TypeCb.ItemsSource = typeInvent;
+            contextInvent = invent;
+            DataContext = contextInvent;
+           
+           
+            if (contextInvent.Id != 0)
             {
-                oldValues = App.db.Entry(contextFish).CurrentValues.Clone();
+                oldValues = App.db.Entry(contextInvent).CurrentValues.Clone();
             }
+
         }
+
         private void SaveBt_Click(object sender, RoutedEventArgs e)
         {
             try
             {
 
-                if (string.IsNullOrEmpty(contextFish.Title))
+                if (string.IsNullOrEmpty(contextInvent.Title))
                 {
                     MessageBox.Show("Заполните поле названия", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-                if (string.IsNullOrEmpty(contextFish.Description))
+                if (string.IsNullOrEmpty(contextInvent.Description))
                 {
                     MessageBox.Show("Заполните поле описания", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
-                if (contextFish.Cost == null)
+                if (contextInvent.CostInvent == null)
                 {
                     MessageBox.Show("Заполните поле цены", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-                if (contextFish.CountFish == null)
+                if (contextInvent.CountInvent == null)
                 {
                     MessageBox.Show("Заполните поле количества", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-                if (contextFish.Aquarium == null)
-                {
-                    MessageBox.Show("Выберите аквариум", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-                if (contextFish.TypeFish == null)
+               
+                if (contextInvent.TypeInventory == null)
                 {
                     MessageBox.Show("Выберите тип", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
-
                 }
-                if (contextFish.CountFish < 0)
+                if(contextInvent.CountInvent < 0)
                 {
                     MessageBox.Show("Значение количества не может быть меньше 0", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-                if (contextFish.Cost < 0)
+                if (contextInvent.CostInvent < 0)
                 {
                     MessageBox.Show("Значение цены не может быть меньше 0", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
                 else
                 {
-                    if (contextFish.Id == 0)
+                    if (contextInvent.Id == 0)
                     {
-                        App.db.Fish.Add(contextFish);
+                        App.db.Inventory.Add(contextInvent);
                     }
                     App.db.SaveChanges();
                     MessageBox.Show("Сохранено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -109,7 +105,6 @@ namespace Administrator.Pages
                 MessageBox.Show($"Ошибка {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
         private void AddImageBt_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -117,10 +112,26 @@ namespace Administrator.Pages
                 var dialog = new OpenFileDialog();
                 if (dialog.ShowDialog().GetValueOrDefault())
                 {
-                    contextFish.PhotoFish = File.ReadAllBytes(dialog.FileName);
+                    contextInvent.PhotoInvent = File.ReadAllBytes(dialog.FileName);
                     DataContext = null;
-                    DataContext = contextFish;
+                    DataContext = contextInvent;
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private void CancelBt_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (oldValues != null)
+                {
+                    App.db.Entry(contextInvent).CurrentValues.SetValues(oldValues);
+
+                }
+                NavigationService.GoBack();
             }
             catch (Exception ex)
             {
@@ -141,23 +152,6 @@ namespace Administrator.Pages
             {
                 e.Handled = true;
             }
-        }
-        private void CancelBt_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                if (oldValues != null)
-                {
-                    App.db.Entry(contextFish).CurrentValues.SetValues(oldValues);
-
-                }
-                NavigationService.GoBack();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-
         }
     }
 }

@@ -18,20 +18,22 @@ using WaterWorldLibrary.Models;
 namespace Client.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для LookPage.xaml
+    /// Логика взаимодействия для LookFishPage.xaml
     /// </summary>
-    public partial class LookPage : Page
+    public partial class LookFishPage : Page
     {
-        Inventory contextInvent;
+        Fish contextFish;
         DbPropertyValues oldValues;
-        public LookPage(Inventory inventory)
+        public LookFishPage(Fish fish)
         {
             InitializeComponent();
-           contextInvent = inventory;
-            DataContext = contextInvent;
-            if (contextInvent.Id != 0)
+           
+
+            contextFish = fish;
+            DataContext = contextFish;
+            if (contextFish.Id != 0)
             {
-                oldValues = App.db.Entry(contextInvent).CurrentValues.Clone();
+                oldValues = App.db.Entry(contextFish).CurrentValues.Clone();
             }
         }
 
@@ -41,7 +43,7 @@ namespace Client.Pages
             {
                 if (oldValues != null)
                 {
-                    App.db.Entry(contextInvent).CurrentValues.SetValues(oldValues);
+                    App.db.Entry(contextFish).CurrentValues.SetValues(oldValues);
 
                 }
                 NavigationService.GoBack();
@@ -50,9 +52,9 @@ namespace Client.Pages
             {
                 MessageBox.Show($"Ошибка {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
 
-        private void BuscketBt_Click(object sender, RoutedEventArgs e)
+        }
+        private void BusketBt_Click(object sender, RoutedEventArgs e)
         {
 
         }

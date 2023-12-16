@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WaterWorldLibrary.Models;
 
 namespace Consultant.Pages
 {
@@ -20,9 +22,39 @@ namespace Consultant.Pages
     /// </summary>
     public partial class LookPage : Page
     {
-        public LookPage()
+        Inventory contextInvent;
+        DbPropertyValues oldValues;
+        public LookPage(Inventory inventory)
         {
             InitializeComponent();
+            contextInvent = inventory;
+            DataContext = contextInvent;
+            if (contextInvent.Id != 0)
+            {
+                oldValues = App.db.Entry(contextInvent).CurrentValues.Clone();
+            }
+        }
+
+        private void CancelBt_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (oldValues != null)
+                {
+                    App.db.Entry(contextInvent).CurrentValues.SetValues(oldValues);
+
+                }
+                NavigationService.GoBack();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void BuscketBt_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

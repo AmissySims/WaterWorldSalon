@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Administrator.Windows"
         mc:Ignorable="d"
-        Title="EditStatusWin" Height="200" Width="300" Background="DarkBlue">
+        Title="Изменить статус" Height="200" Width="300" Background="DarkBlue">
     <Grid>
         <StackPanel HorizontalAlignment="Center" 
                     VerticalAlignment="Center"
