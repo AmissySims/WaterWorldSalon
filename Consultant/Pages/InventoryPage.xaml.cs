@@ -90,7 +90,8 @@ namespace Consultant.Pages
 
         private void LookBt_Click(object sender, RoutedEventArgs e)
         {
-
+            var selInvent = (sender as Button).DataContext as Inventory;
+            NavigationService.Navigate(new LookPage(selInvent));
         }
 
         private void BuscketBt_Click(object sender, RoutedEventArgs e)

@@ -102,7 +102,8 @@ namespace Client.Pages
 
         private void LookBt_Click(object sender, RoutedEventArgs e)
         {
-
+            var selInvent = (sender as Button).DataContext as Fish;
+            NavigationService.Navigate(new LookFishPage(selInvent));
         }
 
         private void BuscketBt_Click(object sender, RoutedEventArgs e)

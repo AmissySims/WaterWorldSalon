@@ -39,7 +39,7 @@ namespace Client.Pages
         {
             var found = FoundTb.Text.ToLower();
             var type = FiltrCb.SelectedItem as TypeInventory;
-            var invent = App.db.Inventory.ToList();
+            var invent = App.db.Inventory.Where(x=> x.Id != 14).ToList();
             if (!string.IsNullOrEmpty(found))
             {
                 invent = App.db.Inventory.Where(x => x.Title.ToLower().Contains(found)).ToList();
@@ -91,7 +91,8 @@ namespace Client.Pages
 
         private void LookBt_Click(object sender, RoutedEventArgs e)
         {
-
+            var selInvent = (sender as Button).DataContext as Inventory;
+            NavigationService.Navigate(new LookPage(selInvent));
         }
 
         private void BuscketBt_Click(object sender, RoutedEventArgs e)
