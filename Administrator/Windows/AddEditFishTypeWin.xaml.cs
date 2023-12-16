@@ -19,12 +19,12 @@ namespace Administrator.Windows
     /// <summary>
     /// Логика взаимодействия для AddEditFishTypePage.xaml
     /// </summary>
-    public partial class AddEditFishTypePage : Window
+    public partial class AddEditFishTypeWin : Window
     {
 
         TypeFish contextType;
         DbPropertyValues oldValues;
-        public AddEditFishTypePage(TypeFish typeFish)
+        public AddEditFishTypeWin(TypeFish typeFish)
         {
             InitializeComponent();
             contextType = typeFish;

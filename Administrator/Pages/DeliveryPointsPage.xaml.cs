@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Administrator.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WaterWorldLibrary.Models;
 
 namespace Administrator.Pages
 {
@@ -23,6 +25,32 @@ namespace Administrator.Pages
         public DeliveryPointsPage()
         {
             InitializeComponent();
+        }
+
+        private void Refresh()
+        {
+            PointsList.ItemsSource = App.db.DeliveryPoint.ToList();
+
+        }
+        private void AddPointBt_Click(object sender, RoutedEventArgs e)
+        {
+            AddEditPointsWin addEditDelivery = new AddEditPointsWin(new DeliveryPoint());
+            addEditDelivery.ShowDialog();
+            Refresh();
+        }
+
+        private void EditPoint_Click(object sender, RoutedEventArgs e)
+        {
+            AddEditPointsWin addEditDelivery = new AddEditPointsWin((sender as Button).DataContext as DeliveryPoint);
+            addEditDelivery.ShowDialog();
+            Refresh();
+
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Refresh();
+
         }
     }
 }

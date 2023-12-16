@@ -23,7 +23,17 @@ namespace Administrator.Pages
         public TypesMainPage()
         {
             InitializeComponent();
-            TypesFrame.NavigationService.Navigate(new TypesPage());
+            TypesFrame.NavigationService.Navigate(new InventTypesPage());
+        }
+
+        private void InventTypesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            TypesFrame.NavigationService.Navigate(new InventTypesPage());
+        }
+
+        private void FishTypesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            TypesFrame.NavigationService.Navigate(new FishTypesPage());
         }
     }
 }

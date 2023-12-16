@@ -13,8 +13,9 @@
             <RowDefinition Height="3*"/>
             <RowDefinition Height="22*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0">
-            
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <Button Style="{StaticResource AllBtn}" x:Name="InventTypesBtn" Content="Типы инвентаря" Margin="5" Click="InventTypesBtn_Click" />
+            <Button Style="{StaticResource AllBtn}" x:Name="FishTypesBtn" Content="Типы рыб" Margin="5" Click="FishTypesBtn_Click" />
         </StackPanel>
         <Frame x:Name="TypesFrame" NavigationUIVisibility="Hidden" Grid.Row="1"/>
     </Grid>

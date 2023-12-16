@@ -90,6 +90,9 @@
     <Compile Include="Windows\AddEditInventTypeWin.xaml.cs">
       <DependentUpon>AddEditInventTypeWin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\AddEditPointsWin.xaml.cs">
+      <DependentUpon>AddEditPointsWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\EditStatusWin.xaml.cs">
       <DependentUpon>EditStatusWin.xaml</DependentUpon>
     </Compile>
@@ -174,6 +177,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\AddEditInventTypeWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddEditPointsWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
