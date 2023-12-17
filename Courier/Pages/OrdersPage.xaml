@@ -66,21 +66,12 @@
                                     <TextBlock Text="{Binding Date, StringFormat=dd.MM.yyyy}" Style="{StaticResource Color}"
                                        Margin="5 5"/>
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="Кол-во товаров"  Style="{StaticResource Color}"
-                                      Margin="10 5"/>
-                                    <TextBlock Text="{Binding Count, StringFormat='{}{0} шт.'}"
-                                       Margin="5 5" Style="{StaticResource Color}"/>
-
-
-
-                                </StackPanel>
-
+                            
 
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="Сумма заказа" Style="{StaticResource Color}"
                                        Margin="10 5"/>
-                                    <TextBlock Text="{Binding TotalPrice, StringFormat='{}{0} ₽'}" Style="{StaticResource Color}"
+                                    <TextBlock Text="{Binding Price, StringFormat='{}{0} ₽'}" Style="{StaticResource Color}"
                                       Margin="5 5"/>
 
                                 </StackPanel>
@@ -129,7 +120,7 @@
                                             <Border BorderThickness="1" BorderBrush="White" Padding="2" >
                                                 <StackPanel>
                                                     <TextBlock Text="{Binding Fish.Title}" Style="{StaticResource Color}"/>
-                                                    <TextBlock Text="{Binding Count, StringFormat='{}{0} шт.'}" Style="{StaticResource Color}"/>
+                                                    <TextBlock Text="{Binding CountFishOrder, StringFormat='{}{0} шт.'}" Style="{StaticResource Color}"/>
                                                 </StackPanel>
                                             </Border>
                                         </DataTemplate>
@@ -153,7 +144,7 @@
                                             <Border BorderThickness="1" BorderBrush="White" Padding="2" >
                                                 <StackPanel>
                                                     <TextBlock Text="{Binding Inventory.Title}" Style="{StaticResource Color}"/>
-                                                    <TextBlock Text="{Binding Count, StringFormat='{}{0} шт.'}" Style="{StaticResource Color}"/>
+                                                    <TextBlock Text="{Binding CountInventOrder, StringFormat='{}{0} шт.'}" Style="{StaticResource Color}"/>
                                                 </StackPanel>
                                             </Border>
                                         </DataTemplate>

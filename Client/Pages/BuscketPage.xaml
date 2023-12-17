@@ -63,9 +63,9 @@
                                    HorizontalAlignment="Center" VerticalAlignment="Center"
                                    RenderOptions.BitmapScalingMode="Fant">
                                     <Image.Source>
-                                        <Binding Path="PhotoFish">
+                                        <Binding Path="Fish.PhotoFish">
                                             <Binding.TargetNullValue>
-                                                <BitmapImage UriSource="\Resources\рыбы.png"/>
+                                                <BitmapImage UriSource="\Resources\fish.jpg"/>
                                             </Binding.TargetNullValue>
                                         </Binding>
                                     </Image.Source>

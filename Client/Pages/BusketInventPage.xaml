@@ -64,7 +64,7 @@
                                    HorizontalAlignment="Center" VerticalAlignment="Center"
                                    RenderOptions.BitmapScalingMode="Fant">
                                     <Image.Source>
-                                        <Binding Path="PhotoInvent">
+                                        <Binding Path="Inventory.PhotoInvent">
                                             <Binding.TargetNullValue>
                                                 <BitmapImage UriSource="\Resources\invent.jpg"/>
                                             </Binding.TargetNullValue>
