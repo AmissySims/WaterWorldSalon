@@ -41,18 +41,24 @@
                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   HorizontalAlignment="Center"
                   Loaded="LIstBucket_Loaded">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel HorizontalAlignment="Center"/>
+                </ItemsPanelTemplate>
+
+            </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border  BorderBrush="White" 
                              BorderThickness="3" Padding="3" 
                              Margin="5 5">
                         <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="13*"/>
-                                <ColumnDefinition Width="18*"/>
-                                <ColumnDefinition Width="19*"/>
-                            </Grid.ColumnDefinitions>
-                            <StackPanel Grid.Column="0" Margin="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="13*"/>
+                                <RowDefinition Height="29*"/>
+                                <RowDefinition Height="13*"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" Margin="5">
                                 <Image Width="100" Height="100"  Margin="5"
                                   
                                    HorizontalAlignment="Center" VerticalAlignment="Center"
@@ -66,9 +72,9 @@
                                     </Image.Source>
                                 </Image>
                             </StackPanel>
-                            <StackPanel Grid.Column="1">
+                            <StackPanel Grid.Row="1">
                                 <StackPanel>
-                                    <TextBlock Text="{Binding Inventory.Title}" Style="{StaticResource Color}"
+                                    <TextBlock TextWrapping="Wrap" Text="{Binding Inventory.Title}" Style="{StaticResource Color}"
                                     Margin="5"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" >
@@ -92,7 +98,7 @@
                                         TextChanged="CountTb_TextChanged" />
                                 </StackPanel>
                             </StackPanel>
-                            <StackPanel Grid.Column="2">
+                            <StackPanel Grid.Row="2">
                                 <Button x:Name="DeleteBt"
                                     Content=" Удалить из корзины "
                                     Margin="10"
