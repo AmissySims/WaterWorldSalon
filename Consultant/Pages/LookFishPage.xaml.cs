@@ -36,6 +36,13 @@ namespace Consultant.Pages
             {
                 oldValues = App.db.Entry(contextFish).CurrentValues.Clone();
             }
+
+            if (contextFish.CountFish == 0)
+            {
+
+                BusketBt.Visibility = Visibility.Collapsed;
+            }
+            else { BusketBt.Visibility = Visibility.Visible; }
         }
         private void SaveBt_Click(object sender, RoutedEventArgs e)
         {
@@ -90,7 +97,36 @@ namespace Consultant.Pages
         }
         private void BusketBt_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                var selectedProduct = (sender as Button).DataContext as Fish;
 
+                BusketFish bucket = new BusketFish
+                {
+                    CountF = 1,
+                    UserId = CurrentUser.AuthUser.Id,
+                    FishId = selectedProduct.Id
+                };
+
+                var prodInBucket = App.db.BusketFish.Where(b => b.FishId == bucket.FishId).FirstOrDefault();
+                if (prodInBucket != null) { MessageBox.Show("Данный товар уже присутствует в корзине", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information); return; };
+
+                App.db.BusketFish.Add(bucket);
+                App.db.SaveChanges();
+                MessageBoxResult result = MessageBox.Show("Товар добавлен в корзину. Хотите перейти в корзину сейчас?", "Уведомление", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    NavigationService.Navigate(new BuscketPage());
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при добавлении в корзину: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

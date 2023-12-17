@@ -33,6 +33,12 @@ namespace Client.Pages
             {
                 oldValues = App.db.Entry(contextInvent).CurrentValues.Clone();
             }
+
+            if (contextInvent.CountInvent == 0)
+            {
+                BuscketBt.Visibility = Visibility.Collapsed;
+            }
+            else { BuscketBt.Visibility = Visibility.Visible; }
         }
 
         private void CancelBt_Click(object sender, RoutedEventArgs e)

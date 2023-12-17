@@ -35,6 +35,12 @@ namespace Client.Pages
             {
                 oldValues = App.db.Entry(contextFish).CurrentValues.Clone();
             }
+            if (contextFish.CountFish == 0) 
+            { 
+           
+                BusketBt.Visibility = Visibility.Collapsed;
+            }
+            else { BusketBt.Visibility = Visibility.Visible; }
         }
 
         private void CancelBt_Click(object sender, RoutedEventArgs e)

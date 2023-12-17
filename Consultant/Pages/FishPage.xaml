@@ -104,7 +104,7 @@
                                     <Button Content=" В корзину "
                                         Margin="5 "
                                        x:Name="BuscketBt"
-                                        
+                                        Visibility="{Binding Visibility}"
                                         Style="{StaticResource AllBtn}" Click="BuscketBt_Click"/>
                                 </StackPanel>
 

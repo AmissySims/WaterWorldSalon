@@ -54,5 +54,10 @@ namespace Consultant.Pages
         {
             NavigationService.Navigate(new InventoryPage());
         }
+
+        private void BucketInvBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new BusketinventPage());
+        }
     }
 }
