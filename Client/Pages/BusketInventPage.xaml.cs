@@ -17,26 +17,27 @@ using WaterWorldLibrary.Models;
 namespace Client.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для BuscketPage.xaml
+    /// Логика взаимодействия для BusketInventPage.xaml
     /// </summary>
-    public partial class BuscketPage : Page
+    public partial class BusketInventPage : Page
     {
-        public static List<BuscketItemFish> bucketList { get; set; }
-        public BuscketPage()
+        public static List<BuscketItemInvent> bucketList { get; set; }
+        public BusketInventPage()
         {
             InitializeComponent();
-            bucketList = App.db.BusketFish
-                   .Where(b => (b.FishId == b.Fish.Id ) && b.UserId == CurrentUser.AuthUser.Id)
-                   .Select(b => new BuscketItemFish
-                   {
-                       Fish = b.Fish,
-                       
-                       Count = (int)b.CountF
-                   })
-                   .ToList();
+            bucketList = App.db.BusketInventory
+                  .Where(b => (b.InventoryId == b.Inventory.Id) && b.UserId == CurrentUser.AuthUser.Id)
+                  .Select(b => new BuscketItemInvent
+                  {
+                      Inventory = b.Inventory,
+
+                      Count = (int)b.CountI
+                  })
+                  .ToList();
 
             LIstBucket.ItemsSource = bucketList;
         }
+
         private void OrderBt_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -44,9 +45,9 @@ namespace Client.Pages
                 foreach (var buc in bucketList)
                 {
 
-                    int countProd = App.db.Fish.Where(p => p.Id == buc.Fish.Id).Select(p => p.CountFish).FirstOrDefault() ?? -1 ;
-                  
-                    if (countProd < buc.Fish.CountFish )
+                    int countProd = App.db.Inventory.Where(p => p.Id == buc.Inventory.Id).Select(p => p.CountInvent).FirstOrDefault() ?? -1;
+
+                    if (countProd < buc.Inventory.CountInvent)
                     {
                         MessageBox.Show($"Остаток на складе {countProd}, укажите верное количество", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                         return;
@@ -56,10 +57,10 @@ namespace Client.Pages
                         MessageBox.Show("Ошибка товара на складе", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                         return;
                     }
-                   
+
                 }
 
-                NavigationService.Navigate(new AddOrderPage(bucketList));
+                NavigationService.Navigate(new AddOrderInventPage(bucketList));
 
             }
             catch (Exception ex)
@@ -70,13 +71,13 @@ namespace Client.Pages
 
         private void DeleteCommand(object sender, RoutedEventArgs e)
         {
-            var selectedProduct = (sender as Button).DataContext as BuscketItemFish;
+            var selectedProduct = (sender as Button).DataContext as BuscketItemInvent;
             if (selectedProduct != null)
             {
                 try
                 {
-                    var rm = App.db.BusketFish.Where(b => b.FishId == selectedProduct.Fish.Id ).FirstOrDefault();
-                    App.db.BusketFish.Remove(rm);
+                    var rm = App.db.BusketInventory.Where(b => b.InventoryId == selectedProduct.Inventory.Id).FirstOrDefault();
+                    App.db.BusketInventory.Remove(rm);
                     App.db.SaveChanges();
                     bucketList.Remove(selectedProduct);
                     LIstBucket.ItemsSource = null;
@@ -94,14 +95,14 @@ namespace Client.Pages
             TextBox currentTextBox = (TextBox)sender;
             TextBlock totalPriceTextBlock = FindTotalPriceTextBlock(currentTextBox);
 
-            if (totalPriceTextBlock.DataContext is BuscketItemFish product)
+            if (totalPriceTextBlock.DataContext is BuscketItemInvent product)
             {
                 if (Int32.TryParse(currentTextBox.Text, out Int32 currentCount))
                 {
-                    var productInBucket = App.db.BusketFish.FirstOrDefault(b => b.FishId == product.Fish.Id);
+                    var productInBucket = App.db.BusketInventory.FirstOrDefault(b => b.InventoryId == product.Inventory.Id);
                     if (productInBucket != null)
                     {
-                        productInBucket.CountF = currentCount;
+                        productInBucket.CountI = currentCount;
                         App.db.SaveChanges();
                     }
                     else
@@ -109,7 +110,7 @@ namespace Client.Pages
                         return;
                     }
 
-                    totalPriceTextBlock.Text = (product.Fish.Cost * currentCount).ToString();
+                    totalPriceTextBlock.Text = (product.Inventory.CostInvent * currentCount).ToString();
                 }
                 else
                 {
@@ -168,11 +169,11 @@ namespace Client.Pages
 
                     if (countTextBox != null && totalPriceTextBlock != null)
                     {
-                        if (countTextBox.DataContext is BuscketItemFish product)
+                        if (countTextBox.DataContext is BuscketItemInvent product)
                         {
                             if (int.TryParse(countTextBox.Text, out int currentCount))
                             {
-                                totalPriceTextBlock.Text = (product.Fish.Cost * currentCount).ToString();
+                                totalPriceTextBlock.Text = (product.Inventory.CostInvent * currentCount).ToString();
                             }
                             else
                             {

@@ -37,4 +37,11 @@ namespace WaterWorldLibrary.Models
             }
         }
     }
+    public class BuscketItemInvent
+    {
+        public Inventory Inventory { get; set; }
+
+        public int Count { get; set; }
+    }
+
 }

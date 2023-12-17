@@ -85,6 +85,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\AddOrderInventPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AddOrderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -94,6 +98,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\BuscketPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\BusketInventPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -138,6 +146,9 @@
     <Compile Include="Pages\AccountPage.xaml.cs">
       <DependentUpon>AccountPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AddOrderInventPage.xaml.cs">
+      <DependentUpon>AddOrderInventPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AddOrderPage.xaml.cs">
       <DependentUpon>AddOrderPage.xaml</DependentUpon>
     </Compile>
@@ -146,6 +157,9 @@
     </Compile>
     <Compile Include="Pages\BuscketPage.xaml.cs">
       <DependentUpon>BuscketPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BusketInventPage.xaml.cs">
+      <DependentUpon>BusketInventPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\EditUserPage.xaml.cs">
       <DependentUpon>EditUserPage.xaml</DependentUpon>
@@ -201,6 +215,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Consultant\Consultant.csproj">
+      <Project>{30AB7AD4-0A27-464C-8B6B-A5BFAE12A163}</Project>
+      <Name>Consultant</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WaterWorldLibrary\WaterWorldLibrary.csproj">
       <Project>{3eb95b04-8169-4fff-a3b4-8351618e625e}</Project>
       <Name>WaterWorldLibrary</Name>

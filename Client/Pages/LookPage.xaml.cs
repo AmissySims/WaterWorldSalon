@@ -54,7 +54,36 @@ namespace Client.Pages
 
         private void BuscketBt_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                var selectedProduct = (sender as Button).DataContext as Inventory;
 
+                BusketInventory bucket = new BusketInventory
+                {
+                    CountI = 1,
+                    UserId = CurrentUser.AuthUser.Id,
+                    InventoryId = selectedProduct.Id
+                };
+
+                var prodInBucket = App.db.BusketInventory.Where(b => b.InventoryId == bucket.InventoryId).FirstOrDefault();
+                if (prodInBucket != null) { MessageBox.Show("Данный товар уже присутствует в корзине", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information); return; };
+
+                App.db.BusketInventory.Add(bucket);
+                App.db.SaveChanges();
+                MessageBoxResult result = MessageBox.Show("Товар добавлен в корзину. Хотите перейти в корзину сейчас?", "Уведомление", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    NavigationService.Navigate(new BusketInventPage());
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при добавлении в корзину: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

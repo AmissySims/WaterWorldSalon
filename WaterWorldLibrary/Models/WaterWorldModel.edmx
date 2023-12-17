@@ -12,15 +12,23 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NumberAquarium" Type="int" />
         </EntityType>
-        <EntityType Name="Busket">
+        <EntityType Name="BusketFish">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserId" Type="int" />
           <Property Name="FishId" Type="int" />
+          <Property Name="CountF" Type="int" />
+        </EntityType>
+        <EntityType Name="BusketInventory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
           <Property Name="InventoryId" Type="int" />
-          <Property Name="Count" Type="int" />
+          <Property Name="CountI" Type="int" />
         </EntityType>
         <EntityType Name="DeliveryPoint">
           <Key>
@@ -93,6 +101,17 @@
           <Property Name="OrderId" Type="int" />
           <Property Name="CountInventOrder" Type="int" />
         </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "WaterWorld.dbo.OrderInventoryEnd" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="OrderInventoryEnd">
+          <Property Name="Id" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Date" Type="date" />
+          <Property Name="StatusOrderId" Type="int" />
+          <Property Name="AdressToDelivery" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeliveryType" Type="nchar" MaxLength="10" />
+        </EntityType>-->
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="Id" />
@@ -145,36 +164,48 @@
         </EntityType>
         <Association Name="FK_Busket_Fish">
           <End Role="Fish" Type="Self.Fish" Multiplicity="0..1" />
-          <End Role="Busket" Type="Self.Busket" Multiplicity="*" />
+          <End Role="BusketFish" Type="Self.BusketFish" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Fish">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Busket">
+            <Dependent Role="BusketFish">
               <PropertyRef Name="FishId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Busket_Inventory">
-          <End Role="Inventory" Type="Self.Inventory" Multiplicity="0..1" />
-          <End Role="Busket" Type="Self.Busket" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Inventory">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Busket">
-              <PropertyRef Name="InventoryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Busket_User">
           <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Busket" Type="Self.Busket" Multiplicity="*" />
+          <End Role="BusketFish" Type="Self.BusketFish" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Busket">
+            <Dependent Role="BusketFish">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusketInventory_Inventory">
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="0..1" />
+          <End Role="BusketInventory" Type="Self.BusketInventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BusketInventory">
+              <PropertyRef Name="InventoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusketInventory_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="BusketInventory" Type="Self.BusketInventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BusketInventory">
               <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
@@ -337,7 +368,8 @@
         </Association>
         <EntityContainer Name="Хранилище WaterWorldModelContainer">
           <EntitySet Name="Aquarium" EntityType="Self.Aquarium" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Busket" EntityType="Self.Busket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BusketFish" EntityType="Self.BusketFish" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BusketInventory" EntityType="Self.BusketInventory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DeliveryPoint" EntityType="Self.DeliveryPoint" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DeliveryType" EntityType="Self.DeliveryType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Fish" EntityType="Self.Fish" Schema="dbo" store:Type="Tables" />
@@ -353,15 +385,19 @@
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Busket_Fish" Association="Self.FK_Busket_Fish">
             <End Role="Fish" EntitySet="Fish" />
-            <End Role="Busket" EntitySet="Busket" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Busket_Inventory" Association="Self.FK_Busket_Inventory">
-            <End Role="Inventory" EntitySet="Inventory" />
-            <End Role="Busket" EntitySet="Busket" />
+            <End Role="BusketFish" EntitySet="BusketFish" />
           </AssociationSet>
           <AssociationSet Name="FK_Busket_User" Association="Self.FK_Busket_User">
             <End Role="User" EntitySet="User" />
-            <End Role="Busket" EntitySet="Busket" />
+            <End Role="BusketFish" EntitySet="BusketFish" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusketInventory_Inventory" Association="Self.FK_BusketInventory_Inventory">
+            <End Role="Inventory" EntitySet="Inventory" />
+            <End Role="BusketInventory" EntitySet="BusketInventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusketInventory_User" Association="Self.FK_BusketInventory_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="BusketInventory" EntitySet="BusketInventory" />
           </AssociationSet>
           <AssociationSet Name="FK_DeliveryPoint_User" Association="Self.FK_DeliveryPoint_User">
             <End Role="User" EntitySet="User" />
@@ -422,7 +458,8 @@
       <Schema Namespace="WaterWorldModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="WaterWorldEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Aquarium" EntityType="WaterWorldModel.Aquarium" />
-          <EntitySet Name="Busket" EntityType="WaterWorldModel.Busket" />
+          <EntitySet Name="BusketFish" EntityType="WaterWorldModel.BusketFish" />
+          <EntitySet Name="BusketInventory" EntityType="WaterWorldModel.BusketInventory" />
           <EntitySet Name="DeliveryPoint" EntityType="WaterWorldModel.DeliveryPoint" />
           <EntitySet Name="DeliveryType" EntityType="WaterWorldModel.DeliveryType" />
           <EntitySet Name="Fish" EntityType="WaterWorldModel.Fish" />
@@ -442,15 +479,19 @@
           </AssociationSet>
           <AssociationSet Name="FK_Busket_Fish" Association="WaterWorldModel.FK_Busket_Fish">
             <End Role="Fish" EntitySet="Fish" />
-            <End Role="Busket" EntitySet="Busket" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Busket_Inventory" Association="WaterWorldModel.FK_Busket_Inventory">
-            <End Role="Inventory" EntitySet="Inventory" />
-            <End Role="Busket" EntitySet="Busket" />
+            <End Role="BusketFish" EntitySet="BusketFish" />
           </AssociationSet>
           <AssociationSet Name="FK_Busket_User" Association="WaterWorldModel.FK_Busket_User">
             <End Role="User" EntitySet="User" />
-            <End Role="Busket" EntitySet="Busket" />
+            <End Role="BusketFish" EntitySet="BusketFish" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusketInventory_Inventory" Association="WaterWorldModel.FK_BusketInventory_Inventory">
+            <End Role="Inventory" EntitySet="Inventory" />
+            <End Role="BusketInventory" EntitySet="BusketInventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusketInventory_User" Association="WaterWorldModel.FK_BusketInventory_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="BusketInventory" EntitySet="BusketInventory" />
           </AssociationSet>
           <AssociationSet Name="FK_DeliveryPoint_User" Association="WaterWorldModel.FK_DeliveryPoint_User">
             <End Role="User" EntitySet="User" />
@@ -509,18 +550,27 @@
           <Property Name="NumberAquarium" Type="Int32" />
           <NavigationProperty Name="Fish" Relationship="WaterWorldModel.FK_Fish_Aquarium" FromRole="Aquarium" ToRole="Fish" />
         </EntityType>
-        <EntityType Name="Busket">
+        <EntityType Name="BusketFish">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserId" Type="Int32" />
           <Property Name="FishId" Type="Int32" />
+          <Property Name="CountF" Type="Int32" />
+          <NavigationProperty Name="Fish" Relationship="WaterWorldModel.FK_Busket_Fish" FromRole="BusketFish" ToRole="Fish" />
+          <NavigationProperty Name="User" Relationship="WaterWorldModel.FK_Busket_User" FromRole="BusketFish" ToRole="User" />
+        </EntityType>
+        <EntityType Name="BusketInventory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
           <Property Name="InventoryId" Type="Int32" />
-          <Property Name="Count" Type="Int32" />
-          <NavigationProperty Name="Fish" Relationship="WaterWorldModel.FK_Busket_Fish" FromRole="Busket" ToRole="Fish" />
-          <NavigationProperty Name="Inventory" Relationship="WaterWorldModel.FK_Busket_Inventory" FromRole="Busket" ToRole="Inventory" />
-          <NavigationProperty Name="User" Relationship="WaterWorldModel.FK_Busket_User" FromRole="Busket" ToRole="User" />
+          <Property Name="CountI" Type="Int32" />
+          <NavigationProperty Name="Inventory" Relationship="WaterWorldModel.FK_BusketInventory_Inventory" FromRole="BusketInventory" ToRole="Inventory" />
+          <NavigationProperty Name="User" Relationship="WaterWorldModel.FK_BusketInventory_User" FromRole="BusketInventory" ToRole="User" />
         </EntityType>
         <EntityType Name="DeliveryPoint">
           <Key>
@@ -553,7 +603,7 @@
           <Property Name="AquariumId" Type="Int32" />
           <Property Name="PhotoFish" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Aquarium" Relationship="WaterWorldModel.FK_Fish_Aquarium" FromRole="Fish" ToRole="Aquarium" />
-          <NavigationProperty Name="Busket" Relationship="WaterWorldModel.FK_Busket_Fish" FromRole="Fish" ToRole="Busket" />
+          <NavigationProperty Name="BusketFish" Relationship="WaterWorldModel.FK_Busket_Fish" FromRole="Fish" ToRole="BusketFish" />
           <NavigationProperty Name="TypeFish" Relationship="WaterWorldModel.FK_Fish_TypeFish" FromRole="Fish" ToRole="TypeFish" />
           <NavigationProperty Name="OrderFish" Relationship="WaterWorldModel.FK_OrderFish_Fish" FromRole="Fish" ToRole="OrderFish" />
         </EntityType>
@@ -568,7 +618,7 @@
           <Property Name="CostInvent" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="CountInvent" Type="Int32" />
           <Property Name="PhotoInvent" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="Busket" Relationship="WaterWorldModel.FK_Busket_Inventory" FromRole="Inventory" ToRole="Busket" />
+          <NavigationProperty Name="BusketInventory" Relationship="WaterWorldModel.FK_BusketInventory_Inventory" FromRole="Inventory" ToRole="BusketInventory" />
           <NavigationProperty Name="TypeInventory" Relationship="WaterWorldModel.FK_Inventory_TypeInventory" FromRole="Inventory" ToRole="TypeInventory" />
           <NavigationProperty Name="OrderInventory" Relationship="WaterWorldModel.FK_OrderInventory_Inventory" FromRole="Inventory" ToRole="OrderInventory" />
         </EntityType>
@@ -666,7 +716,8 @@
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PhotoUser" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="Busket" Relationship="WaterWorldModel.FK_Busket_User" FromRole="User" ToRole="Busket" />
+          <NavigationProperty Name="BusketFish" Relationship="WaterWorldModel.FK_Busket_User" FromRole="User" ToRole="BusketFish" />
+          <NavigationProperty Name="BusketInventory" Relationship="WaterWorldModel.FK_BusketInventory_User" FromRole="User" ToRole="BusketInventory" />
           <NavigationProperty Name="DeliveryPoint" Relationship="WaterWorldModel.FK_DeliveryPoint_User" FromRole="User" ToRole="DeliveryPoint" />
           <NavigationProperty Name="Order" Relationship="WaterWorldModel.FK_Order_User" FromRole="User" ToRole="Order" />
           <NavigationProperty Name="Role" Relationship="WaterWorldModel.FK_User_Role" FromRole="User" ToRole="Role" />
@@ -685,36 +736,48 @@
         </Association>
         <Association Name="FK_Busket_Fish">
           <End Type="WaterWorldModel.Fish" Role="Fish" Multiplicity="0..1" />
-          <End Type="WaterWorldModel.Busket" Role="Busket" Multiplicity="*" />
+          <End Type="WaterWorldModel.BusketFish" Role="BusketFish" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Fish">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Busket">
+            <Dependent Role="BusketFish">
               <PropertyRef Name="FishId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Busket_Inventory">
-          <End Type="WaterWorldModel.Inventory" Role="Inventory" Multiplicity="0..1" />
-          <End Type="WaterWorldModel.Busket" Role="Busket" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Inventory">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Busket">
-              <PropertyRef Name="InventoryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Busket_User">
           <End Type="WaterWorldModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="WaterWorldModel.Busket" Role="Busket" Multiplicity="*" />
+          <End Type="WaterWorldModel.BusketFish" Role="BusketFish" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Busket">
+            <Dependent Role="BusketFish">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusketInventory_Inventory">
+          <End Type="WaterWorldModel.Inventory" Role="Inventory" Multiplicity="0..1" />
+          <End Type="WaterWorldModel.BusketInventory" Role="BusketInventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BusketInventory">
+              <PropertyRef Name="InventoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusketInventory_User">
+          <End Type="WaterWorldModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="WaterWorldModel.BusketInventory" Role="BusketInventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BusketInventory">
               <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
@@ -863,7 +926,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -877,12 +940,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Busket">
-            <EntityTypeMapping TypeName="WaterWorldModel.Busket">
-              <MappingFragment StoreEntitySet="Busket">
-                <ScalarProperty Name="Count" ColumnName="Count" />
-                <ScalarProperty Name="InventoryId" ColumnName="InventoryId" />
+          <EntitySetMapping Name="BusketFish">
+            <EntityTypeMapping TypeName="WaterWorldModel.BusketFish">
+              <MappingFragment StoreEntitySet="BusketFish">
+                <ScalarProperty Name="CountF" ColumnName="CountF" />
                 <ScalarProperty Name="FishId" ColumnName="FishId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BusketInventory">
+            <EntityTypeMapping TypeName="WaterWorldModel.BusketInventory">
+              <MappingFragment StoreEntitySet="BusketInventory">
+                <ScalarProperty Name="CountI" ColumnName="CountI" />
+                <ScalarProperty Name="InventoryId" ColumnName="InventoryId" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

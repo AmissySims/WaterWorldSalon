@@ -80,6 +80,15 @@ namespace WaterWorldLibrary.Models
 
             }
         }
+
         
+        //public decimal? TotalPrice
+        //{
+        //    get
+        //    {
+        //        return this.OrderProduct.Sum(x => x.Count * x.Product.Price);
+        //    }
+        //}
+
     }
 }

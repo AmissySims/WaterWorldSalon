@@ -17,7 +17,8 @@ namespace WaterWorldLibrary.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            this.Busket = new HashSet<Busket>();
+            this.BusketFish = new HashSet<BusketFish>();
+            this.BusketInventory = new HashSet<BusketInventory>();
             this.DeliveryPoint = new HashSet<DeliveryPoint>();
             this.Order = new HashSet<Order>();
         }
@@ -31,7 +32,9 @@ namespace WaterWorldLibrary.Models
         public byte[] PhotoUser { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Busket> Busket { get; set; }
+        public virtual ICollection<BusketFish> BusketFish { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BusketInventory> BusketInventory { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DeliveryPoint> DeliveryPoint { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

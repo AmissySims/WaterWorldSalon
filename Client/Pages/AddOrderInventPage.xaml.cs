@@ -17,14 +17,13 @@ using WaterWorldLibrary.Models;
 namespace Client.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для AddOrderPage.xaml
+    /// Логика взаимодействия для AddOrderInventPage.xaml
     /// </summary>
-    public partial class AddOrderPage : Page
+    public partial class AddOrderInventPage : Page
     {
-        public List<BuscketItemFish> Busket { get; set; }
-        public AddOrderPage(List<BuscketItemFish> bucketList)
+        public List<BuscketItemInvent> Busket { get; set; }
+        public AddOrderInventPage(List<BuscketItemInvent> bucketList)
         {
-
             InitializeComponent();
             Busket = bucketList;
             var points = App.db.DeliveryPoint.ToList();
@@ -35,9 +34,10 @@ namespace Client.Pages
             NameTb.Text = CurrentUser.AuthUser.FullName;
             Adress.Visibility = Visibility.Hidden;
             IfPickup.Visibility = Visibility.Hidden;
-           
-            PriceTb.Text = $"{Convert.ToString(Busket.Sum(b => b.Count * b.Fish.Cost)) + " ₽"}";
+
+            PriceTb.Text = $"{Convert.ToString(Busket.Sum(b => b.Count * b.Inventory.CostInvent)) + " ₽"}";
         }
+
         private void Pickup_Checked(object sender, RoutedEventArgs e)
         {
             IfPickup.Visibility = Visibility.Visible;
@@ -61,9 +61,9 @@ namespace Client.Pages
             IfPickup.Visibility = Visibility.Visible;
         }
 
-      
 
-       
+
+
         private void DeliveryPointCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -73,12 +73,12 @@ namespace Client.Pages
         {
             try
             {
-                if (App.db.BusketFish.ToList().Count <= 0)
+                if (App.db.BusketInventory.ToList().Count <= 0)
                 {
                     MessageBox.Show("Ваша корзина пуста", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 }
-               
+
                 Order ord = new Order();
                 {
                     ord.UserId = CurrentUser.AuthUser.Id;
@@ -104,40 +104,40 @@ namespace Client.Pages
                         return;
                     }
                     ord.Date = DateTime.Now;
-                    ord.Price = Busket.Sum(b => b.Count * b.Fish.Cost);
+                    ord.Price = Busket.Sum(b => b.Count * b.Inventory.CostInvent);
                 }
                 //Добавление в Order
                 App.db.Order.Add(ord);
 
                 //Удаление корзины
-                var bucketsToRemove = App.db.BusketFish.Where(b => b.UserId == CurrentUser.AuthUser.Id).ToList();
-                App.db.BusketFish.RemoveRange(bucketsToRemove);
+                var bucketsToRemove = App.db.BusketInventory.Where(b => b.UserId == CurrentUser.AuthUser.Id).ToList();
+                App.db.BusketInventory.RemoveRange(bucketsToRemove);
 
                 //Добавление в OrderProduct
                 foreach (var b in Busket)
                 {
-                    var orderProduct = new OrderFish
+                    var orderProduct = new OrderInventory
                     {
-                        FishId = b.Fish.Id,
-                        CountFishOrder = b.Count,
+                        InventoryId = b.Inventory.Id,
+                        CountInventOrder = b.Count,
                         OrderId = ord.Id
                     };
-                    
+
 
                     //Минус товар на складе
-                    BuscketItemFish selectedProd = App.db.Fish
-                            .Where(p => p.Id == orderProduct.FishId)
-                            .Select(p => new BuscketItemFish
+                    BuscketItemInvent selectedProd = App.db.Inventory
+                            .Where(p => p.Id == orderProduct.InventoryId)
+                            .Select(p => new BuscketItemInvent
                             {
-                                Fish = p,
-                                Count = (int)p.CountFish
+                                Inventory = p,
+                                Count = (int)p.CountInvent
                             })
                             .FirstOrDefault();
-                    selectedProd.Fish.CountFish -= b.Count;
-     
-                  
-                    App.db.OrderFish.Add(orderProduct);
-                   
+                    selectedProd.Inventory.CountInvent -= b.Count;
+
+
+                    App.db.OrderInventory.Add(orderProduct);
+
 
                 }
 

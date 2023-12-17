@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Consultant.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -48,6 +49,11 @@ namespace Client.Pages
         private void BucketBtn_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new BuscketPage());
+        }
+
+        private void BucketInvBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new BusketInventPage());
         }
     }
 }

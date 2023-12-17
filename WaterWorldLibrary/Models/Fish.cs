@@ -17,7 +17,7 @@ namespace WaterWorldLibrary.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Fish()
         {
-            this.Busket = new HashSet<Busket>();
+            this.BusketFish = new HashSet<BusketFish>();
             this.OrderFish = new HashSet<OrderFish>();
         }
     
@@ -32,7 +32,7 @@ namespace WaterWorldLibrary.Models
     
         public virtual Aquarium Aquarium { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Busket> Busket { get; set; }
+        public virtual ICollection<BusketFish> BusketFish { get; set; }
         public virtual TypeFish TypeFish { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderFish> OrderFish { get; set; }

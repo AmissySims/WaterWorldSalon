@@ -1,4 +1,4 @@
-﻿<Page x:Class="Client.Pages.BuscketPage"
+﻿<Page x:Class="Client.Pages.BusketInventPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Client.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="BuscketPage">
+      Title="BusketInventPage">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -53,14 +53,14 @@
                                 <ColumnDefinition Width="19*"/>
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0" Margin="5">
-                                <Image Width="100" Height="100" Grid.Column="0" Margin="5"
-                                   x:Name="PhotoFish" 
+                                <Image Width="100" Height="100"  Margin="5"
+                                  
                                    HorizontalAlignment="Center" VerticalAlignment="Center"
                                    RenderOptions.BitmapScalingMode="Fant">
                                     <Image.Source>
-                                        <Binding Path="PhotoFish">
+                                        <Binding Path="PhotoInvent">
                                             <Binding.TargetNullValue>
-                                                <BitmapImage UriSource="\Resources\рыбы.png"/>
+                                                <BitmapImage UriSource="\Resources\invent.jpg"/>
                                             </Binding.TargetNullValue>
                                         </Binding>
                                     </Image.Source>
@@ -68,12 +68,12 @@
                             </StackPanel>
                             <StackPanel Grid.Column="1">
                                 <StackPanel>
-                                    <TextBlock Text="{Binding Fish.Title}" Style="{StaticResource Color}"
+                                    <TextBlock Text="{Binding Inventory.Title}" Style="{StaticResource Color}"
                                     Margin="5"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" >
                                     <TextBlock Text="Цена за штуку"  Style="{StaticResource Color}" Margin="5 0"/>
-                                    <TextBlock Style="{StaticResource Color}" Text="{Binding Fish.Cost, StringFormat='{}{0} '}"
+                                    <TextBlock Style="{StaticResource Color}" Text="{Binding Inventory.CostInvent, StringFormat='{}{0} '}"
                                      Margin="5 0"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" >
@@ -98,7 +98,7 @@
                                     Margin="10"
                                     Style="{StaticResource  AllBtn}"
                                     Click="DeleteCommand"
-                                    CommandParameter="{Binding Fish}" />
+                                    CommandParameter="{Binding Inventory}" />
                             </StackPanel>
                         </Grid>
 

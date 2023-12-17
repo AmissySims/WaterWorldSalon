@@ -66,9 +66,10 @@ namespace WaterWorldLibrary.Models
 
     }
 
-    public class BuscketItem
+    public class BuscketItemFish
     {
         public Fish Fish { get; set; }
+      
         public int Count { get; set; }
     }
 }

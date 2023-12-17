@@ -69,6 +69,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Pages\AddOrderInventPage.xaml.cs">
+      <DependentUpon>AddOrderInventPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BusketinventPage.xaml.cs">
+      <DependentUpon>BusketinventPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\LookFishPage.xaml.cs">
       <DependentUpon>LookFishPage.xaml</DependentUpon>
     </Compile>
@@ -91,6 +97,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\AddOrderInventPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AddOrderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -104,6 +114,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\BuscketPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\BusketinventPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

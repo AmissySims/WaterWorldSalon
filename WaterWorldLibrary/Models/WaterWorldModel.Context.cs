@@ -26,7 +26,8 @@ namespace WaterWorldLibrary.Models
         }
     
         public virtual DbSet<Aquarium> Aquarium { get; set; }
-        public virtual DbSet<Busket> Busket { get; set; }
+        public virtual DbSet<BusketFish> BusketFish { get; set; }
+        public virtual DbSet<BusketInventory> BusketInventory { get; set; }
         public virtual DbSet<DeliveryPoint> DeliveryPoint { get; set; }
         public virtual DbSet<DeliveryType> DeliveryType { get; set; }
         public virtual DbSet<Fish> Fish { get; set; }

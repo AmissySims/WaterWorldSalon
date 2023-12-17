@@ -54,7 +54,10 @@
     <Compile Include="Models\Aquarium.cs">
       <DependentUpon>WaterWorldModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Busket.cs">
+    <Compile Include="Models\BusketFish.cs">
+      <DependentUpon>WaterWorldModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BusketInventory.cs">
       <DependentUpon>WaterWorldModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DeliveryPoint.cs">

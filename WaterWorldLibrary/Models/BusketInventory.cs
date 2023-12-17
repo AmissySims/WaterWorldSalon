@@ -12,15 +12,13 @@ namespace WaterWorldLibrary.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Busket
+    public partial class BusketInventory
     {
         public int Id { get; set; }
         public Nullable<int> UserId { get; set; }
-        public Nullable<int> FishId { get; set; }
         public Nullable<int> InventoryId { get; set; }
-        public Nullable<int> Count { get; set; }
+        public Nullable<int> CountI { get; set; }
     
-        public virtual Fish Fish { get; set; }
         public virtual Inventory Inventory { get; set; }
         public virtual User User { get; set; }
     }

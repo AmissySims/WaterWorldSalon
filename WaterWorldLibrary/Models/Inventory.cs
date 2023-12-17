@@ -17,7 +17,7 @@ namespace WaterWorldLibrary.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Inventory()
         {
-            this.Busket = new HashSet<Busket>();
+            this.BusketInventory = new HashSet<BusketInventory>();
             this.OrderInventory = new HashSet<OrderInventory>();
         }
     
@@ -30,7 +30,7 @@ namespace WaterWorldLibrary.Models
         public byte[] PhotoInvent { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Busket> Busket { get; set; }
+        public virtual ICollection<BusketInventory> BusketInventory { get; set; }
         public virtual TypeInventory TypeInventory { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderInventory> OrderInventory { get; set; }
