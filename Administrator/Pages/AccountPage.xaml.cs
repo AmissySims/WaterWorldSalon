@@ -25,6 +25,7 @@ namespace Administrator.Pages
         public AccountPage()
         {
             InitializeComponent();
+            Refresh();
         }
 
         public void Refresh()

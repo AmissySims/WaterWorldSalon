@@ -53,7 +53,7 @@ namespace Administrator.Pages
 
         private void AccountBtn_Click(object sender, RoutedEventArgs e)
         {
-      
+
             NavigationService.Navigate(new AccountPage());
         }
 
@@ -64,7 +64,7 @@ namespace Administrator.Pages
 
         private void TypesBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new TypesMainPage());
         }
     }
 }

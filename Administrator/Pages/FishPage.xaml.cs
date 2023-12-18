@@ -31,6 +31,7 @@ namespace Administrator.Pages
             SortCb.Items.Add("от Я до А");
             SortCb.Items.Add("По цене мин.");
             SortCb.Items.Add("По цене макс.");
+            Refresh();
         }
 
         private void Refresh()
@@ -122,6 +123,11 @@ namespace Administrator.Pages
         private void AllFishBtn_Click(object sender, RoutedEventArgs e)
         {
             selType = null;
+            Refresh();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
             Refresh();
         }
     }

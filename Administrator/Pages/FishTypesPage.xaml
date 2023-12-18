@@ -20,7 +20,7 @@
                    VerticalAlignment="Center"
                     HorizontalAlignment="Center">
 
-            <TextBlock Text="Типы инвентаря" FontSize="18" Margin="5 10" Style="{StaticResource Color}"/>
+            <TextBlock Text="Типы рыб" FontSize="18" Margin="5 10" Style="{StaticResource Color}"/>
 
 
             <Button x:Name="AddBt" Content="+" FontWeight="Bold" 
