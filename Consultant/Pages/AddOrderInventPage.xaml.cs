@@ -26,41 +26,20 @@ namespace Consultant.Pages
         {
             InitializeComponent();
             Busket = bucketList;
-            var points = App.db.DeliveryPoint.ToList();
+
+            var points = App.db.DeliveryPoint.Where(x => x.UserId == CurrentUser.AuthUser.Id).ToList();
             DeliveryPointCb.ItemsSource = points;
             var custs = App.db.User.Where(x => x.RoleId == 3).ToList();
             CustomerCb.ItemsSource = custs;
             DateTb.Text = DateTime.Now.ToString("dd.MM.yyyy");
 
     
-            Adress.Visibility = Visibility.Hidden;
-            IfPickup.Visibility = Visibility.Hidden;
+           
 
             PriceTb.Text = $"{Convert.ToString(Busket.Sum(b => b.Count * b.Inventory.CostInvent)) + " ₽"}";
         }
 
-        private void Pickup_Checked(object sender, RoutedEventArgs e)
-        {
-            IfPickup.Visibility = Visibility.Visible;
-            Adress.Visibility = Visibility.Hidden;
-        }
-
-        private void Pickup_Unchecked(object sender, RoutedEventArgs e)
-        {
-            IfPickup.Visibility = Visibility.Visible;
-            Adress.Visibility = Visibility.Visible;
-        }
-
-        private void Courier_Checked(object sender, RoutedEventArgs e)
-        {
-            IfPickup.Visibility = Visibility.Hidden;
-            Adress.Visibility = Visibility.Visible;
-        }
-
-        private void Courier_Unchecked(object sender, RoutedEventArgs e)
-        {
-            IfPickup.Visibility = Visibility.Visible;
-        }
+       
 
 
 
@@ -86,24 +65,10 @@ namespace Consultant.Pages
 
                     ord.StatusOrderId = 1;
 
-                    if (Courier.IsChecked == true)
-                    {
-                        ord.DeliveryTypeId = 2;
-                        ord.DeliveryPointId = null;
-                        ord.AdressToDelivery = AdressTb.Text;
-                    }
-                    else if (Pickup.IsChecked == true)
-                    {
-                        ord.DeliveryTypeId = 1;
-                        ord.DeliveryPointId = (DeliveryPointCb.SelectedItem as DeliveryPoint).Id;
-                        ord.AdressToDelivery = null;
+                    ord.DeliveryTypeId = 1;
+                    ord.AdressToDelivery = null;
+                    ord.DeliveryPointId = (DeliveryPointCb.SelectedItem as DeliveryPoint).Id;
 
-                    }
-                    else
-                    {
-                        MessageBox.Show("Выберите тип доставки", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                        return;
-                    }
                     ord.Date = DateTime.Now;
                     ord.Price = Busket.Sum(b => b.Count * b.Inventory.CostInvent);
                 }

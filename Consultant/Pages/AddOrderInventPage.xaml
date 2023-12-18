@@ -46,16 +46,9 @@
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Тип доставки"  Style="{StaticResource Color}"
                        Margin="5"/>
-                <RadioButton GroupName="Delivery" Content="Самовывоз"
-                             x:Name="Pickup"
-                             Margin="5"  Foreground="White"
-                             Checked="Pickup_Checked"
-                             Unchecked="Pickup_Unchecked"
-                             />
-                <RadioButton GroupName="Delivery"  
-                             Margin="5" Foreground="White"
-                             Content="Курьер" x:Name="Courier" Checked="Courier_Checked" 
-                             Unchecked="Courier_Unchecked"/>
+                <TextBlock Text="Самовывоз"  Style="{StaticResource Color}"
+                       Margin="5"/>
+
 
             </StackPanel>
             <StackPanel x:Name="IfPickup" Orientation="Horizontal">
@@ -69,16 +62,7 @@
                       DisplayMemberPath="Adress" 
                           SelectionChanged="DeliveryPointCb_SelectionChanged" />
             </StackPanel>
-            <StackPanel x:Name="Adress" Orientation="Horizontal">
-                <TextBlock Text="Адрес доставки"  Style="{StaticResource Color}"
-                           Margin="5"/>
-                <TextBox Text="{Binding AdressDelivery}"
-                         Margin="5"
-                         Width="200"
-                         MaxLength="2000"
-                         x:Name="AdressTb"/>
-
-            </StackPanel>
+          
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Сумма"  Style="{StaticResource Color}"
                            Margin="5"/>
