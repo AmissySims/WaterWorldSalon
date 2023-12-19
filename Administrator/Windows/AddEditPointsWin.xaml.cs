@@ -26,7 +26,7 @@ namespace Administrator.Windows
         public AddEditPointsWin(DeliveryPoint point)
         {
             InitializeComponent();
-            var users = App.db.User.Where(x => x.RoleId == 4).ToList();
+            var users = App.db.User.Where(x => x.RoleId == 2).ToList();
             RoleCb.ItemsSource = users;
             contextPoint = point;
             DataContext = contextPoint;

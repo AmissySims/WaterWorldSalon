@@ -95,17 +95,13 @@
 
                             </StackPanel>
                             <StackPanel Grid.Row="2">
-                                <StackPanel Orientation="Horizontal">
-                                    <Button Content=" Просмотр "
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Button Content=" Редактирование "
                                         Margin="5 "
                                        x:Name="LookBt"
                                         
                                         Style="{StaticResource AllBtn}" Click="LookBt_Click"/>
-                                    <Button Content=" В корзину "
-                                        Margin="5 "
-                                       x:Name="BuscketBt"
-                                        Visibility="{Binding Visibility}"
-                                        Style="{StaticResource AllBtn}" Click="BuscketBt_Click"/>
+                                  
                                 </StackPanel>
 
                             </StackPanel>

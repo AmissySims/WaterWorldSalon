@@ -91,10 +91,7 @@
                             Content=" Сохранить "
                             Style="{StaticResource AllBtn}"
                     Margin="5" Click="SaveBt_Click"/>
-            <Button x:Name="BusketBt"
-                            Content=" В корзину "
-                            Style="{StaticResource AllBtn}"
-                    Margin="5" Click="BusketBt_Click"/>
+           
             <Button x:Name="CancelBt"  Content=" Отмена "
                             Style="{StaticResource AllBtn
                 }"

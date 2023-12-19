@@ -72,14 +72,10 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" >
                 <TextBlock Text="Тип" Margin="5" Style="{StaticResource Color}"/>
-                <TextBlock Style="{StaticResource Color}" Text="{Binding TypeInventory.Title}"/>
+                <TextBlock Style="{StaticResource Color}" Text="{Binding TypeInventory.Title}" />
             </StackPanel>
 
-            <Button x:Name="BuscketBt"
-                            Content=" В корзину "
-                     Visibility="{Binding Visibility}"
-                            Style="{StaticResource AllBtn}"
-                    Margin="5" Click="BuscketBt_Click"/>
+           
             <Button x:Name="CancelBt"  Content=" Назад "
                             Style="{StaticResource AllBtn
                 }"

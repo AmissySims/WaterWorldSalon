@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Administrator.Windows"
         mc:Ignorable="d"
-        Title="Добавить/изменить пункт выдачи" Height="200" Width="300" Background="DarkBlue">
+        Title="Добавить/изменить пункт выдачи" Height="250" Width="300" Background="DarkBlue">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Адрес" HorizontalAlignment="Center"  Style="{StaticResource Color}"
                        Margin="5"/>
             <TextBox Width="220"
                      TextWrapping="Wrap"
-                     Height="30"
+                     Height="50"
                      Margin="5"
                      MaxLength="2000"  
                      x:Name="AdressTb"

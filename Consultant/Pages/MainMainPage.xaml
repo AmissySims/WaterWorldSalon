@@ -15,12 +15,11 @@
                 <Button x:Name="AquariumBtn" Style="{StaticResource ImportantBtn}" Content="Аквариумы" Click="AquariumBtn_Click"/>
                
                 <Button x:Name="InventoryBtn" Style="{StaticResource ImportantBtn}" Content="Инвентарь" Click="InventoryBtn_Click"/>
-                <Button x:Name="AccountBtn" Style="{StaticResource ImportantBtn}" Content="Аккаунт" Click="AccountBtn_Click"/>
+               
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="15" HorizontalAlignment="Center">
                 <Button x:Name="OrdersBtn" Style="{StaticResource ImportantBtn}" Content="Заказы" Click="OrdersBtn_Click"/>
-                <Button x:Name="BucketInvBtn" Style="{StaticResource ImportantBtn}" Content="Корзина ухода" Width="210" Click="BucketInvBtn_Click"/>
-                <Button x:Name="BucketBtn" Style="{StaticResource ImportantBtn}" Content="Корзина рыбок" Width="210" Click="BucketBtn_Click"/>
+                <Button x:Name="AccountBtn" Style="{StaticResource ImportantBtn}" Content="Аккаунт" Click="AccountBtn_Click"/>
               
             </StackPanel>
 
