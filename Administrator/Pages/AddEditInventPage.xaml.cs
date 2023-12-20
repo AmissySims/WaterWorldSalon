@@ -58,17 +58,18 @@ namespace Administrator.Pages
                     return;
                 }
 
-                if (contextInvent.CostInvent == null)
+                if (contextInvent.CostInvent < 0 || CostInTb.Text.Length <= 0)
                 {
                     MessageBox.Show("Заполните поле цены", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-                if (contextInvent.CountInvent == null)
+
+                if (contextInvent.CountInvent < 0 || CountItb.Text.Length <= 0)
                 {
-                    MessageBox.Show("Заполните поле количества", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Заполните поле количество", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-               
+
                 if (contextInvent.TypeInventory == null)
                 {
                     MessageBox.Show("Выберите тип", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);

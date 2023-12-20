@@ -56,8 +56,8 @@
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Количество" Style="{StaticResource Color}"
                                    Margin="5"/>
-                <TextBlock Text="{Binding CountInvent}"
-                                   Margin="5" Style="{StaticResource Color}"
+                <TextBox Text="{Binding CountInvent}" x:Name="CountInvTb" PreviewTextInput="TextBox_PreviewTextInput"
+                                   Margin="5" 
                              Width="80" />
 
             </StackPanel>
@@ -72,13 +72,15 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" >
                 <TextBlock Text="Тип" Margin="5" Style="{StaticResource Color}"/>
-                <TextBlock Style="{StaticResource Color}" Text="{Binding TypeInventory.Title}" />
+                <TextBlock Style="{StaticResource Color}" Margin="5" Text="{Binding TypeInventory.Title}" />
             </StackPanel>
 
-           
+            <Button x:Name="SaveBt"
+                            Content=" Сохранить "
+                            Style="{StaticResource AllBtn}"
+                    Margin="5" Click="SaveBt_Click"/>
             <Button x:Name="CancelBt"  Content=" Назад "
-                            Style="{StaticResource AllBtn
-                }"
+                            Style="{StaticResource AllBtn}"
                     Margin="5" Click="CancelBt_Click"/>
 
         </StackPanel>

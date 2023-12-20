@@ -78,6 +78,11 @@ namespace Client.Pages
                     MessageBox.Show("Ваша корзина пуста", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 }
+                if(Busket.Sum(b => b.Count * b.Inventory.CostInvent) == 0)
+                {
+                    MessageBox.Show("Невозможно оформитть заказ со стоимость 0", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+                }
 
                 Order ord = new Order();
                 {

@@ -57,12 +57,13 @@ namespace Administrator.Pages
                     return;
                 }
 
-                if (contextFish.Cost == null)
+
+                if (contextFish.Cost < 0 || CostFTb.Text.Length <= 0)
                 {
                     MessageBox.Show("Заполните поле цены", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-                if (contextFish.CountFish == null)
+                if (contextFish.CountFish < 0 || CountFTb.Text.Length <= 0)
                 {
                     MessageBox.Show("Заполните поле количества", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;

@@ -54,6 +54,53 @@ namespace Consultant.Pages
             }
         }
 
-       
+        private void SaveBt_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+
+              
+                
+
+                if (contextInvent.CountInvent < 0 || CountInvTb.Text.Length <= 0)
+                {
+                    MessageBox.Show("Заполните поле количество", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                if (contextInvent.CountInvent < 0)
+                {
+                    MessageBox.Show("Значение количества не может быть меньше 0", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                else
+                {
+                    if (contextInvent.Id == 0)
+                    {
+                        App.db.Inventory.Add(contextInvent);
+                    }
+                    App.db.SaveChanges();
+                    MessageBox.Show("Сохранено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    NavigationService.GoBack();
+
+                }
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsDigit(e.Text, 0))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

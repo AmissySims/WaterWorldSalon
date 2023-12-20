@@ -59,9 +59,9 @@
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Количество" Style="{StaticResource Color}"
                                    Margin="5"/>
-                <TextBlock Text="{Binding CountFish}"
+                <TextBox Text="{Binding CountFish}" x:Name="CountFTb" PreviewTextInput="TextBox_PreviewTextInput"
                                    Margin="5"
-                             Width="80" Style="{StaticResource Color}"/>
+                             Width="80" />
 
             </StackPanel>
             <StackPanel Orientation="Horizontal">

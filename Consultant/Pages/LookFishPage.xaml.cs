@@ -49,6 +49,16 @@ namespace Consultant.Pages
                     MessageBox.Show("Выберите аквариум", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
+                if (contextFish.CountFish < 0 || CountFTb.Text.Length <= 0)
+                {
+                    MessageBox.Show("Заполните поле количество", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                else if (contextFish.CountFish < 0)
+                {
+                    MessageBox.Show("Значение количества не может быть меньше 0", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
              
                 else
                 {
@@ -89,6 +99,12 @@ namespace Consultant.Pages
             }
 
         }
-        
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsDigit(e.Text, 0))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

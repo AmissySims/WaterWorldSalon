@@ -93,5 +93,13 @@ namespace Client.Pages
                 MessageBox.Show($"Ошибка {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void FNameTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if(!Char.IsLetter(e.Text, 0))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

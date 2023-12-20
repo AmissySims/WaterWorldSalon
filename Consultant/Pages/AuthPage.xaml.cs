@@ -36,7 +36,7 @@ namespace Consultant.Pages
                 var user = CurrentUser.AuthUser;
                 if (user == null)
                 {
-                    MessageBox.Show("Такого пользователя нет3", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Такого пользователя нет", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
                 if (string.IsNullOrEmpty(login))

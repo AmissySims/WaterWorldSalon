@@ -39,7 +39,7 @@ namespace Administrator.Pages
             try
             {
                 var selUser = (sender as Button).DataContext as User;
-               // NavigationService.Navigate(new AddEditUserPage(selUser));
+                NavigationService.Navigate(new AddEditUserPage(selUser));
             }
             catch (Exception ex)
             {

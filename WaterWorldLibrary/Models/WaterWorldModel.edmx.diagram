@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2419d7c269a843538caccda1c67914a2" Name="Diagram1">
+      <Diagram DiagramId="2419d7c269a843538caccda1c67914a2" Name="Diagram1" ZoomLevel="86">
         <EntityTypeShape EntityType="WaterWorldModel.Aquarium" Width="1.5" PointX="0.75" PointY="9.875" />
         <EntityTypeShape EntityType="WaterWorldModel.BusketFish" Width="1.5" PointX="5.25" PointY="5.75" />
         <EntityTypeShape EntityType="WaterWorldModel.BusketInventory" Width="1.5" PointX="5.25" PointY="2.75" />

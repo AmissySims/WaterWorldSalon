@@ -42,6 +42,7 @@ namespace Client.Pages
         {
             try
             {
+                
                 foreach (var buc in bucketList)
                 {
 
@@ -50,6 +51,11 @@ namespace Client.Pages
                     if (countProd < buc.Inventory.CountInvent)
                     {
                         MessageBox.Show($"Остаток на складе {countProd}, укажите верное количество", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                    else if (countProd == 0)
+                    {
+                        MessageBox.Show($"Нельзя выбрать количство товара 0", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                         return;
                     }
                     else if (countProd == -1)

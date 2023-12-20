@@ -16,9 +16,9 @@
 
             <TextBlock Style="{StaticResource Color}" Text="РЕГИСТРАЦИЯ" FontWeight="Bold" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
             <TextBlock Style="{StaticResource Color}" Text="Фамилия" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
-            <TextBox x:Name="FNameTb" Width="100" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
+            <TextBox PreviewTextInput="FNameTb_PreviewTextInput" x:Name="FNameTb" Width="100" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
             <TextBlock Style="{StaticResource Color}" Text="Имя" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
-            <TextBox x:Name="NameTb" Width="100" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
+            <TextBox PreviewTextInput="FNameTb_PreviewTextInput"  x:Name="NameTb" Width="100" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
             <TextBlock Text="Логин" Style="{StaticResource Color}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
             <TextBox x:Name="LoginTb" Width="100" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
             <TextBlock Text="Пароль" Style="{StaticResource Color}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
